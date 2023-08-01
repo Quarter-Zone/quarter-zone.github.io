@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Changelog - Quarter Zone</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/img/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/icon/favicon-96x96.png">
+    <meta name="msapplication-TileColor" content="#000">
+    <meta name="msapplication-TileImage" content="/img/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#000">
+    <link rel="stylesheet" type="text/css" href="/style/all.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/lib/plotly-min.js"></script>
+</head>
+
+<body>
+<div class="main">
+<div class="nav">
+    <a href="/"><div class="logo"></div></a>
+    <div class="themeToggleCont">
+        <input class="switch" type="checkbox" id="themeToggle">
+        <label for="themeToggle">Lights on</label>
+    </div>
+    <ul class="menu">
+        <a href="/about"><li class="header about">About</li></a>
+        <a href="/changelog"><li class="header changelog">Changelog</li></a>
+        <a href="/utilities"><li class="header utilities">Utilities</li></a>
+        <a href="/events"><li class="header events">Events</li></a>
+        <a href="/#hall_of_fame"><li class="header hof">Hall of Fame</li></a>
+        <a href="#"><li class="header connected">Connected</li></a>
+        <a href="/mp_stats"><li>Stats</li></a>
+        <a href="/overall"><li>Overall</li></a>
+        <a href="/cvs"><li>Connected Vs</li></a>
+        <a href="/zb"><li>Zone Battle</li></a>
+        <a href="/sa"><li>Score Attack</li></a>
+        <a href="/csa"><li>Classic Score Attack</li></a>
+        <a href="/#sa_score"><li>Score Attack (Score)</li></a>
+        <a href="/#sa_level"><li>Score Attack (Level)</li></a>
+        <a href="/#csa_score"><li>Classic Score Attack (Score)</li></a>
+        <a href="/#csa_level"><li>Classic Score Attack (Level)</li></a>
+    </ul>
+</div>
+
+<div class="about-section">
+    <div id="about" class="section-header changelog">Changelog</div>
+
+    <ul class="roadmap">
+        <li><i>2023-08-01:</i> As <a href="/shutdown">announced</a>, Quarter Zone will be shutting down over the coming the weeks. Multiplayer leaderboard scraping and the Discord bot have been discontinued. The site now exists as a static GitHub Pages repository still accessible from quarter.zone.</li>
+        <li><i>2022-11-19</i> As a result of a rash of behavior, including manipulated ratings and repeated disconnects, we've begun blacklisting users on multiplayer leaderboards. This also applies to users that were proven to have cheated single player records. These users will be excluded from multiplayer leaderboards, but will still have updates tracked to their user pages.</li>
+        <li><i>2022-11-19:</i> Added win rate trends and a toggle to hide inactive players on multiplayer leaderboards. Players are deemed inactive after two weeks with no recorded matches in the observed mode.</li>
+        <li><i>2022-11-18:</i> After much consideration, we've removed the single player leaderboard pages. It's increasingly evident that we won't be able to achieve full coverage of leaderboard collection in the near future due to the closed nature of console platforms, specifically Nintendo and Sony. A half complete leaderboard with missing platforms only offers marginal utility and does not accurately reflect scores. Steam players will continue to see their single player records ingested on their user profiles irregularly. If this situation changes, we'll look into picking up this effort again.</li>
+        <li><i>2022-10-30:</i> <a href="/events">Events</a> section added. Quarter Zone is moving to <a href="/events/zb/rankings">track competitive performance</a> as an Elo rating or similar using match data scraped from Challonge and provided by tournament organizers. Due to the lack of standardized data and number of matches, rankings are not currently accurate, so <a href="/events/users">help us start to fix this by aliasing users and finding their Quarter Zone profiles!</a></li>
+        <li><i>2022-09-11:</i> Multiplayer and Steam single player leaderboards are being ingested again. The Discord bot is also available. Epic single player leaderboards have changed implementation and we've lost access to retrieving new data there. Enhance has indicated plans to make pre-wipe Epic leaderboard data visible, but we'll investigate that possibility as well. The introduction of other single player platform leaderboard data is again on hold due to changing implementations and the associated cost with ingesting this data.</li>
+        <li><i>2022-06-20:</i> Multiplayer leaderboards have been further extended to include <b>all player data from the top 2000 players on each platform leaderboard (NSO, PSN, etc)</b>. This represents a 2.5x-fold increase in total multiplayer players ingested (14k → 35k). To properly ingest this new flood of data as well as restructure the database for single player leaderboard data, daily updates of leaderboard and user pages will be temporarily discontinued. This also includes charts generated by the Discord bot. <b>Data will continue to be scraped during this period.</b></li>
+        <li><i>2022-06-19:</i> The first automated scrape of Xbox Live single player leaderboards was performed. Ingesting these entries will require serious restructing to the database to accomodate users being referenced by their XUID (Xbox Live ID).</li>
+        <li><i>2022-06-18:</i> Added more precise playtimes to existing boards. Began generating leaderboard pages for Marathon (Endless), Countdown (Endless), Mystery (Endless), and Journey total scores for all difficulties. The Zone and Master (Lines) have been deliberately excluded to not misrepresent records relative to other platforms at this time; instead, consult the Hall of Fame.</li>
+        <li><i>2022-06-12:</i> The site has been transitioned to dedicated hardware; your DNS cache may need to be flushed manually to reflect our new static IP. The Discord bot is also operational again after improvements were made to queries. Page generation is now 50% faster and the Discord bot performs almost no hit to the database.</li>
+        <li><i>2022-05-01:</i> Added user hyperlinks to the Hall of Fame. The Discord bot has been temporarily disabled due to unreliability and will be transitioned to new hardware.</li>
+        <li><i>2022-04-10:</i> Added the <a href="/utilities/eos-id-extractor">EOS ID Extractor</a> to Utilities. With this, we can now begin tracking users that appear outside of the visible leaderboards. See the utility page for more information.</li>
+        <li><i>2022-04-06:</i> Added a "Lights on" mode for those without regard for their eyesight. Reorganized page generation to make things more easily adaptable in the future.</li>
+        <li><i>2022-03-03:</i> Added the <a href="/utilities">Utilities</a> section. Reformated this changelog page for easier reading.</li>
+        <li><i>2022-02-25:</i> Began tracking Impossibilitris (22) line Zone clears on the Hall of Fame.</li>
+        <li><i>2022-01-22:</i> Added the <a href="/mp_stats">Multiplayer Stats</a> page collecting aggregate info about all ingested players.</li>
+        <li><i>2022-01-17:</i> Clarified Epic account linking. If you have linked your platform account to an Epic account (e.g. linked Epic account when playing on Steam), <b>you will appear on multiplayer leaderboards with your Epic display name and Epic as your platform</b>. This is a limitation we cannot currently work around. Work is under way to effectively link single player and multiplayer data for these users on their user pages.</b>
+        <li><i>2022-01-17:</i> Expanded multiplayer leaderboards beyond the 2000 limit to reflect the additional data we scrape, assigning ranks dynamically. When a user appears on any leaderboard in the top 2000, we are then able to retrieve all of their multiplayer data. This change applies retroactively and pulls in data from when scraping first started. <b>There will be gaps in this data as some players have not appeared in the top 2000 anywhere</b> -- this will be reflected on leaderboard pages soon.</b>
+        <li><i>2022-01-04:</i> Added last ingestion date, wins, and endless Countdown and Mystery scores to user profile pages. With this, we now expose on user pages all the public leaderboard data that we collect.</li>
+        <li><i>2021-12-31:</i> Created Discord bot (!qz) to retrieve SR data from Quarter Zone. Find it on the <a href="https://discord.gg/enhance">Enhance</a> and <a href="https:</i>//discord.gg/harddrop">Hard Drop</a> servers!</li>
+        <li><i>2021-12-30:</i> Fixed an issue with calculating win rate for a small subset of players. Due to an ongoing leaderboard issue in-game, Epic-linked accounts are showing up duplicated along with other issues.</i>
+        <li><i>2021-12-15:</i> Began blacklisting users with known cheated records on single player leaderboards. For now, multiplayer records will remain.</li>
+        <li><i>2021-12-15:</i> Fetching data and generating pages is fully automated and scheduled now. User pages now generated with the normal leaderboard update process. Began linking user pages on single player leaderboards. Things can still break due to the number of components and services involved.</li>
+        <li><i>2021-12-11:</i> Began generating user pages for players with multiplayer activity or that use Steam as a platform. Pages are currently generated irregularly.</li>
+        <li><i>2021-12-04:</i> Began ingesting Steam single player leaderboards. Menus reorganized to show Hall of Fame scores on index including world record holders with individual pages for each leaderboard.</li>
+        <li><i>2021-11-21:</i> Added country flags from Steam single player leaderboard data.</li>
+        <li><i>2021-11-20:</i> Added changelog. Added win rate data for all players ranked on SR leaderboards. Database restructured to accommodate linking platform and multiplayer user IDs.</li>
+        <li><i>2021-11-18:</i> Started scraping Steam single player leaderboards.</li>
+        <li><i>2021-11-17:</i> Started scraping multiplayer leaderboards. Site soft launched.</li>
+    </ul>
+</div>
+
+<script src="/js/theme.js"></script>
+</body>
+</html>

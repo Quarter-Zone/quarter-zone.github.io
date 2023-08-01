@@ -1,0 +1,1250 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Zone Battle - Quarter Zone</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/icon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/img/icon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/img/icon/favicon-96x96.png">
+        <meta name="msapplication-TileColor" content="#000">
+        <meta name="msapplication-TileImage" content="/img/icon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#000">
+        <link rel="stylesheet" type="text/css" href="/style/all.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="/js/lib/plotly-min.js"></script>
+    </head>
+
+    <body>
+    <div class="main">
+    <div class="nav">
+        <a href="/"><div class="logo"></div></a>
+        <div class="themeToggleCont">
+            <input class="switch" type="checkbox" id="themeToggle">
+            <label for="themeToggle">Lights on</label>
+        </div>
+        <ul class="menu">
+            <a href="/about"><li class="header about">About</li></a>
+            <a href="/changelog"><li class="header changelog">Changelog</li></a>
+            <a href="/utilities"><li class="header utilities">Utilities</li></a>
+            <a href="/events"><li class="header events">Events</li></a>
+            <a href="/#hall_of_fame"><li class="header hof">Hall of Fame</li></a>
+            <a href="#"><li class="header connected">Connected</li></a>
+            <a href="/mp_stats"><li>Stats</li></a>
+            <a href="/overall"><li>Overall</li></a>
+            <a href="/cvs"><li>Connected Vs</li></a>
+            <a href="/zb"><li>Zone Battle</li></a>
+            <a href="/sa"><li>Score Attack</li></a>
+            <a href="/csa"><li>Classic Score Attack</li></a>
+            <a href="/#sa_score"><li>Score Attack (Score)</li></a>
+            <a href="/#sa_level"><li>Score Attack (Level)</li></a>
+            <a href="/#csa_score"><li>Classic Score Attack (Score)</li></a>
+            <a href="/#csa_level"><li>Classic Score Attack (Level)</li></a>
+        </ul>
+    </div>
+    
+    <div class="tables">
+        <div class="notice"><i>Last updated: 2023-07-31</i></div>
+    
+        <div class="section-header connected">Connected</div>
+    
+        <div class="info-notice">SR differences and win rate trends shown are rolling over the last week. Players are tagged inactive after two weeks with no recorded matches.</div>
+    
+        <div class="toggle-inactive">
+            <input type="checkbox" id="inactive-toggle">
+            <label for="inactive-toggle">Hide inactive players</label>
+        </div>
+    
+        <div class="table_wrap">
+        <table class="sortable">
+            <colgroup>
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 35%;">
+            <col span="1" style="width: 25%;">
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 10%;">
+            </colgroup>
+
+            <caption>Zone Battle</caption>
+
+            <tr>
+                <th class="center">Rank</td>
+                <th class="center">Player</td>
+                <th class="center highlight">Skill Ranking (SR)</td>
+                <th class="center">Wins</td>
+                <th class="center">Win %</td>
+                <th class="center">Plat</td>
+            </tr>
+
+    
+            <tr class="inactive-disabled">
+                <td class="right">34001</td>
+                <td sorttable_customkey="LOGAN4753"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/6DE7A69984A897989AFECA4F2A3CDCB6DEF5F3E9/">LOGAN4753</a></span></td>
+                <td sorttable_customkey="1795" class="right"> 1795</td>
+                <td class="right">4</td>
+                <td class="right" sorttable_customkey="19.0"> 19.0</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34002</td>
+                <td sorttable_customkey="Slayer18132"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/442443599800735098/">Slayer18132</a></span></td>
+                <td sorttable_customkey="1794" class="right"> 1794</td>
+                <td class="right">3</td>
+                <td class="right" sorttable_customkey="17.6"> 17.6</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34003</td>
+                <td sorttable_customkey="MomsenIwa"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/EB6B5DFB3889F07E85BF06717D01A0A1C8DF0BE4/">MomsenIwa</a></span></td>
+                <td sorttable_customkey="1794" class="right"> 1794</td>
+                <td class="right">21</td>
+                <td class="right" sorttable_customkey="26.9"> 26.9</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34004</td>
+                <td sorttable_customkey="Sajmonek999"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/8c5e957318c04f5e8e51fa1848688371/">Sajmonek999</a></span></td>
+                <td sorttable_customkey="1794" class="right"> 1794</td>
+                <td class="right">3</td>
+                <td class="right" sorttable_customkey="11.1"> 11.1</td>
+                <td class="center" sorttable_customkey="epic"><span title="epic" class="platform epic"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34005</td>
+                <td sorttable_customkey="Jakerlow1"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/8567986549909106/">Jakerlow1</a></span></td>
+                <td sorttable_customkey="1791" class="right"> 1791</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34006</td>
+                <td sorttable_customkey="Gyop1w31"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/13f76c80335f4629be3c202b107326c4/">Gyop1w31</a></span></td>
+                <td sorttable_customkey="1785" class="right"> 1785</td>
+                <td class="right">2</td>
+                <td class="right" sorttable_customkey="9.0"> 9.0</td>
+                <td class="center" sorttable_customkey="epic"><span title="epic" class="platform epic"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34007</td>
+                <td sorttable_customkey="虾米ya"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/steam/76561199235466519/">虾米ya</a></span></td>
+                <td sorttable_customkey="1785" class="right"> 1785</td>
+                <td class="right">2</td>
+                <td class="right" sorttable_customkey="13.3"> 13.3</td>
+                <td class="center" sorttable_customkey="steam"><span title="steam" class="platform steam"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34008</td>
+                <td sorttable_customkey="Mr.Kerr"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/4942417095848897/">Mr.Kerr</a></span></td>
+                <td sorttable_customkey="1785" class="right"> 1785</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="6.6"> 6.6</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34009</td>
+                <td sorttable_customkey="sondreic"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/2465452791034050211/">sondreic</a></span></td>
+                <td sorttable_customkey="1778" class="right"> 1778</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="4.7"> 4.7</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34010</td>
+                <td sorttable_customkey="Reality2Fantasy"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/C71F3FE746C90D4F884D019F28281077C942F74D/">Reality2Fantasy</a></span></td>
+                <td sorttable_customkey="1777" class="right"> 1777</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="5.5"> 5.5</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34011</td>
+                <td sorttable_customkey="supergirlmaui"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/4472332892834950/">supergirlmaui</a></span></td>
+                <td sorttable_customkey="1776" class="right"> 1776</td>
+                <td class="right">10</td>
+                <td class="right" sorttable_customkey="11.7"> 11.7</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34012</td>
+                <td sorttable_customkey="IRCFreaky"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/78b2bbc4da811bd6/">IRCFreaky</a></span></td>
+                <td sorttable_customkey="1773" class="right"> 1773</td>
+                <td class="right">32</td>
+                <td class="right" sorttable_customkey="20.5"> 20.5</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34013</td>
+                <td sorttable_customkey="bksoul-mari"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/1251196369950791493/">bksoul-mari</a></span></td>
+                <td sorttable_customkey="1772" class="right"> 1772</td>
+                <td class="right">2</td>
+                <td class="right" sorttable_customkey="13.3"> 13.3</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34014</td>
+                <td sorttable_customkey="Chazzywazzy1323"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/0F3D7EAF88576334EAA7E99D06B9BCC9179201B7/">Chazzywazzy1323</a></span></td>
+                <td sorttable_customkey="1767" class="right"> 1767</td>
+                <td class="right">4</td>
+                <td class="right" sorttable_customkey="10.5"> 10.5</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34015</td>
+                <td sorttable_customkey="FlokiMiller"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/3325607287496762550/">FlokiMiller</a></span></td>
+                <td sorttable_customkey="1764" class="right"><span class="new">NEW!</span>  1764</td>
+                <td class="right">6</td>
+                <td class="right" sorttable_customkey="18.1">🠕 18.1</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34016</td>
+                <td sorttable_customkey="Achille818500"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/9569A81CB6A0A6363C143076452D4CE4C5E2B4D6/">Achille818500</a></span></td>
+                <td sorttable_customkey="1760" class="right"> 1760</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34017</td>
+                <td sorttable_customkey="FiBeeGeeBeez"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/2A6AD6541A3640EC10CBC10305137146BE46989C/">FiBeeGeeBeez</a></span></td>
+                <td sorttable_customkey="1755" class="right"> 1755</td>
+                <td class="right">114</td>
+                <td class="right" sorttable_customkey="27.7"> 27.7</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34018</td>
+                <td sorttable_customkey="o00Rosa00o"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/91DBAAC8C49E278178F6557224CDD5837CF23132/">o00Rosa00o</a></span></td>
+                <td sorttable_customkey="1751" class="right"> 1751</td>
+                <td class="right">57</td>
+                <td class="right" sorttable_customkey="22.2"> 22.2</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34019</td>
+                <td sorttable_customkey="theresabanks"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/b9d596b432844d08a43275cee8ceed2f/">theresabanks</a></span></td>
+                <td sorttable_customkey="1740" class="right"> 1740</td>
+                <td class="right">2</td>
+                <td class="right" sorttable_customkey="14.2"> 14.2</td>
+                <td class="center" sorttable_customkey="epic"><span title="epic" class="platform epic"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34020</td>
+                <td sorttable_customkey="HybraGamingTTV"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/4d6b1b47d621417a8d677f145218950b/">HybraGamingTTV</a></span></td>
+                <td sorttable_customkey="1738" class="right"> 1738</td>
+                <td class="right">4</td>
+                <td class="right" sorttable_customkey="16.6"> 16.6</td>
+                <td class="center" sorttable_customkey="epic"><span title="epic" class="platform epic"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34021</td>
+                <td sorttable_customkey="candylionfox"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/2754838467264640736/">candylionfox</a></span></td>
+                <td sorttable_customkey="1733" class="right"> 1733</td>
+                <td class="right">11</td>
+                <td class="right" sorttable_customkey="15.0"> 15.0</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34022</td>
+                <td sorttable_customkey="Vanitas"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/5f7e0d065e2b77a4/">Vanitas</a></span></td>
+                <td sorttable_customkey="1732" class="right"> 1732</td>
+                <td class="right">2</td>
+                <td class="right" sorttable_customkey="7.1"> 7.1</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34023</td>
+                <td sorttable_customkey="l-z-w-"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/4489000040704305492/">l-z-w-</a></span></td>
+                <td sorttable_customkey="1732" class="right"> 1732</td>
+                <td class="right">5</td>
+                <td class="right" sorttable_customkey="9.8"> 9.8</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34024</td>
+                <td sorttable_customkey="SebSanhueza"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/4691156694275038/">SebSanhueza</a></span></td>
+                <td sorttable_customkey="1732" class="right"> 1732</td>
+                <td class="right">4</td>
+                <td class="right" sorttable_customkey="20.0"> 20.0</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34025</td>
+                <td sorttable_customkey="fnkytwnTB"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/85285B41F879804B13C5FE239AD9D35B6B4DF332/">fnkytwnTB</a></span></td>
+                <td sorttable_customkey="1730" class="right"> 1730</td>
+                <td class="right">4</td>
+                <td class="right" sorttable_customkey="14.8"> 14.8</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34026</td>
+                <td sorttable_customkey="GanglyWharf"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/C7C4A8E1396BBCB57D012F924B18437409375F9F/">GanglyWharf</a></span></td>
+                <td sorttable_customkey="1728" class="right"> 1728</td>
+                <td class="right">7</td>
+                <td class="right" sorttable_customkey="16.6"> 16.6</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34027</td>
+                <td sorttable_customkey="sneeker.2023"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/6067834839936698/">sneeker.2023</a></span></td>
+                <td sorttable_customkey="1712" class="right"><span class="negative">-102</span>  1712</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34028</td>
+                <td sorttable_customkey="TheeLadyBee"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/4690623151025210/">TheeLadyBee</a></span></td>
+                <td sorttable_customkey="1707" class="right"> 1707</td>
+                <td class="right">4</td>
+                <td class="right" sorttable_customkey="11.7"> 11.7</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34029</td>
+                <td sorttable_customkey="thetacobelldog"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/8068967343588078403/">thetacobelldog</a></span></td>
+                <td sorttable_customkey="1705" class="right"> 1705</td>
+                <td class="right">9</td>
+                <td class="right" sorttable_customkey="20.4"> 20.4</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34030</td>
+                <td sorttable_customkey="Anonymous livai"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/07F02014EA79C40253233103AAF14D5704C49CD6/">Anonymous livai</a></span></td>
+                <td sorttable_customkey="1705" class="right"> 1705</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34031</td>
+                <td sorttable_customkey="mindaugas.2023"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/8873064586102191/">mindaugas.2023</a></span></td>
+                <td sorttable_customkey="1701" class="right"> 1701</td>
+                <td class="right">9</td>
+                <td class="right" sorttable_customkey="22.5"> 22.5</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34032</td>
+                <td sorttable_customkey="TheTaylors2201"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/32020BDC0C4410B5BE981EA77CDC9F5489DD636B/">TheTaylors2201</a></span></td>
+                <td sorttable_customkey="1700" class="right"> 1700</td>
+                <td class="right">17</td>
+                <td class="right" sorttable_customkey="14.4"> 14.4</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34033</td>
+                <td sorttable_customkey="Indigoflame3083"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/90C03C7B9520D5907C42B6E637599E4B5BECB379/">Indigoflame3083</a></span></td>
+                <td sorttable_customkey="1700" class="right"> 1700</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="6.2"> 6.2</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34034</td>
+                <td sorttable_customkey="McChillJaimsHugnz"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/5746369462081551/">McChillJaimsHugnz</a></span></td>
+                <td sorttable_customkey="1699" class="right"> 1699</td>
+                <td class="right">3</td>
+                <td class="right" sorttable_customkey="12.0"> 12.0</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34035</td>
+                <td sorttable_customkey="OutRageInCage"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/0E5E4BA215A603532EFF7CEA33C11BA0561F71B5/">OutRageInCage</a></span></td>
+                <td sorttable_customkey="1694" class="right"> 1694</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="5.2"> 5.2</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34036</td>
+                <td sorttable_customkey="Retro3645"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/8BC983A4D6321C525A1616850A23DFCD0EA55275/">Retro3645</a></span></td>
+                <td sorttable_customkey="1692" class="right"> 1692</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="5.5"> 5.5</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34037</td>
+                <td sorttable_customkey="Kyra"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/steam/76561198065814692/">Kyra</a></span></td>
+                <td sorttable_customkey="1690" class="right"><span class="negative">-5</span>  1690</td>
+                <td class="right">256</td>
+                <td class="right" sorttable_customkey="20.5">🠕 20.5</td>
+                <td class="center" sorttable_customkey="steam"><span title="steam" class="platform steam"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34038</td>
+                <td sorttable_customkey="Satan"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/ad75d9979cf615c0/">Satan</a></span></td>
+                <td sorttable_customkey="1687" class="right"> 1687</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="7.1"> 7.1</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34039</td>
+                <td sorttable_customkey="Elektrinha"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/feac56af735d1d95/">Elektrinha</a></span></td>
+                <td sorttable_customkey="1686" class="right"> 1686</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="5.8"> 5.8</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34040</td>
+                <td sorttable_customkey="JP"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/73605f9350d21d27/">JP</a></span></td>
+                <td sorttable_customkey="1686" class="right"><span class="positive">+231</span>  1686</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="5.8">🠕 5.8</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34041</td>
+                <td sorttable_customkey="PandaKatt"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/4af8421d600898a3/">PandaKatt</a></span></td>
+                <td sorttable_customkey="1682" class="right"> 1682</td>
+                <td class="right">6</td>
+                <td class="right" sorttable_customkey="18.7"> 18.7</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34042</td>
+                <td sorttable_customkey="BIGBOYBALLER602"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/4910242755681389/">BIGBOYBALLER602</a></span></td>
+                <td sorttable_customkey="1678" class="right"> 1678</td>
+                <td class="right">2</td>
+                <td class="right" sorttable_customkey="8.3"> 8.3</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34043</td>
+                <td sorttable_customkey="GAMEPRO2PLAY"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/5660502537190049799/">GAMEPRO2PLAY</a></span></td>
+                <td sorttable_customkey="1673" class="right"> 1673</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34044</td>
+                <td sorttable_customkey="Demonia9991"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/C932C695304C390EE3495211AC7263577B875E6F/">Demonia9991</a></span></td>
+                <td sorttable_customkey="1664" class="right"> 1664</td>
+                <td class="right">6</td>
+                <td class="right" sorttable_customkey="13.0"> 13.0</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34045</td>
+                <td sorttable_customkey="Angiebliss"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/63740b7398d7334f/">Angiebliss</a></span></td>
+                <td sorttable_customkey="1660" class="right"> 1660</td>
+                <td class="right">3</td>
+                <td class="right" sorttable_customkey="8.5"> 8.5</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34046</td>
+                <td sorttable_customkey="nagysamuel29"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/steam/76561198317235015/">nagysamuel29</a></span></td>
+                <td sorttable_customkey="1649" class="right"><span class="negative">-17</span>  1649</td>
+                <td class="right">18</td>
+                <td class="right" sorttable_customkey="24.0">🠕 24.0</td>
+                <td class="center" sorttable_customkey="steam"><span title="steam" class="platform steam"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34047</td>
+                <td sorttable_customkey="Goson007"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/0a35576c3202119a/">Goson007</a></span></td>
+                <td sorttable_customkey="1639" class="right"> 1639</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="5.5"> 5.5</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34048</td>
+                <td sorttable_customkey="lucy.phillips.2022"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/4725231737601943/">lucy.phillips.2022</a></span></td>
+                <td sorttable_customkey="1638" class="right"> 1638</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34049</td>
+                <td sorttable_customkey="RaLBert"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/69032fa57b589be4/">RaLBert</a></span></td>
+                <td sorttable_customkey="1631" class="right"> 1631</td>
+                <td class="right">4</td>
+                <td class="right" sorttable_customkey="9.7"> 9.7</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34050</td>
+                <td sorttable_customkey="Nitoservant"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/6452230303092813528/">Nitoservant</a></span></td>
+                <td sorttable_customkey="1630" class="right"> 1630</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34051</td>
+                <td sorttable_customkey="Tomi1687"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/18F1C42AF6F545C6CCA465D2F433CE17879BDA3D/">Tomi1687</a></span></td>
+                <td sorttable_customkey="1612" class="right"> 1612</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34052</td>
+                <td sorttable_customkey="Jablonski1227"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/8090383922580706383/">Jablonski1227</a></span></td>
+                <td sorttable_customkey="1607" class="right"> 1607</td>
+                <td class="right">3</td>
+                <td class="right" sorttable_customkey="10.7"> 10.7</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34053</td>
+                <td sorttable_customkey="Melanie.Unicorn"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/5963130563725387/">Melanie.Unicorn</a></span></td>
+                <td sorttable_customkey="1607" class="right"> 1607</td>
+                <td class="right">2</td>
+                <td class="right" sorttable_customkey="11.7"> 11.7</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34054</td>
+                <td sorttable_customkey="xdarkwolf7583x"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/24644B6F04BE09106EBCF3C71B9E37745D12EFB1/">xdarkwolf7583x</a></span></td>
+                <td sorttable_customkey="1604" class="right"> 1604</td>
+                <td class="right">4</td>
+                <td class="right" sorttable_customkey="13.3"> 13.3</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34055</td>
+                <td sorttable_customkey="stix7"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/5816138411785006/">stix7</a></span></td>
+                <td sorttable_customkey="1598" class="right"> 1598</td>
+                <td class="right">9</td>
+                <td class="right" sorttable_customkey="16.6"> 16.6</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34056</td>
+                <td sorttable_customkey="RCHRVR"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/4410718665703648/">RCHRVR</a></span></td>
+                <td sorttable_customkey="1597" class="right"> 1597</td>
+                <td class="right">4</td>
+                <td class="right" sorttable_customkey="14.2"> 14.2</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34057</td>
+                <td sorttable_customkey="D3ATHTRANC34K"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/5382C74E83C1C2A02E8C9F139A9F2A2AEBAE14A9/">D3ATHTRANC34K</a></span></td>
+                <td sorttable_customkey="1591" class="right"> 1591</td>
+                <td class="right">11</td>
+                <td class="right" sorttable_customkey="15.4"> 15.4</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34058</td>
+                <td sorttable_customkey="LadyDi"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/db61c8dcbc0c9212/">LadyDi</a></span></td>
+                <td sorttable_customkey="1577" class="right"> 1577</td>
+                <td class="right">12</td>
+                <td class="right" sorttable_customkey="13.9"> 13.9</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34059</td>
+                <td sorttable_customkey="KuseKate"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/5735565829903955/">KuseKate</a></span></td>
+                <td sorttable_customkey="1574" class="right"> 1574</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="4.5"> 4.5</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34060</td>
+                <td sorttable_customkey="McBrownBoi"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/5565623793458148/">McBrownBoi</a></span></td>
+                <td sorttable_customkey="1562" class="right"> 1562</td>
+                <td class="right">3</td>
+                <td class="right" sorttable_customkey="10.0"> 10.0</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34061</td>
+                <td sorttable_customkey="CRISPYARNO"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/A835960B5E5BFEA86AA64959B9268DD6475C32D5/">CRISPYARNO</a></span></td>
+                <td sorttable_customkey="1561" class="right"> 1561</td>
+                <td class="right">5</td>
+                <td class="right" sorttable_customkey="20.8"> 20.8</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34062</td>
+                <td sorttable_customkey="CYA007"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/60F2FD0C0D65518DD7F971E9BB502B418E29C125/">CYA007</a></span></td>
+                <td sorttable_customkey="1560" class="right"> 1560</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34063</td>
+                <td sorttable_customkey="karl"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/8fe3bae33761dcb2/">karl</a></span></td>
+                <td sorttable_customkey="1556" class="right"> 1556</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="6.6"> 6.6</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34064</td>
+                <td sorttable_customkey="Alex"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/c6fb38b2a9afc7c6/">Alex</a></span></td>
+                <td sorttable_customkey="1554" class="right"> 1554</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34065</td>
+                <td sorttable_customkey="erikquest1975"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/5749927458376614/">erikquest1975</a></span></td>
+                <td sorttable_customkey="1548" class="right"> 1548</td>
+                <td class="right">5</td>
+                <td class="right" sorttable_customkey="10.6"> 10.6</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34066</td>
+                <td sorttable_customkey="smgmatica"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/74665bcf4fbdb00f/">smgmatica</a></span></td>
+                <td sorttable_customkey="1542" class="right"> 1542</td>
+                <td class="right">4</td>
+                <td class="right" sorttable_customkey="9.3"> 9.3</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34067</td>
+                <td sorttable_customkey="OrcaLove91"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/C054315681AC04F722C7DBA9F94568B4F174AEA0/">OrcaLove91</a></span></td>
+                <td sorttable_customkey="1536" class="right"><span class="negative">-224</span>  1536</td>
+                <td class="right">134</td>
+                <td class="right" sorttable_customkey="24.8">🠗 24.8</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34068</td>
+                <td sorttable_customkey="bloodn2wine7"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/7730665126603583395/">bloodn2wine7</a></span></td>
+                <td sorttable_customkey="1526" class="right"> 1526</td>
+                <td class="right">89</td>
+                <td class="right" sorttable_customkey="18.8"> 18.8</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34069</td>
+                <td sorttable_customkey="lunarbug.henry"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/9181600258524704/">lunarbug.henry</a></span></td>
+                <td sorttable_customkey="1520" class="right"> 1520</td>
+                <td class="right">11</td>
+                <td class="right" sorttable_customkey="17.4"> 17.4</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34070</td>
+                <td sorttable_customkey="efekannsr"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/409633605795693356/">efekannsr</a></span></td>
+                <td sorttable_customkey="1512" class="right"> 1512</td>
+                <td class="right">8</td>
+                <td class="right" sorttable_customkey="20.5"> 20.5</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34071</td>
+                <td sorttable_customkey="THIRD_EYE_AWARE"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/738382710986573675/">THIRD_EYE_AWARE</a></span></td>
+                <td sorttable_customkey="1511" class="right"> 1511</td>
+                <td class="right">50</td>
+                <td class="right" sorttable_customkey="13.7"> 13.7</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34072</td>
+                <td sorttable_customkey="Mohawk_Mike"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/6282586651758662/">Mohawk_Mike</a></span></td>
+                <td sorttable_customkey="1502" class="right"> 1502</td>
+                <td class="right">4</td>
+                <td class="right" sorttable_customkey="13.3"> 13.3</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34073</td>
+                <td sorttable_customkey="xcAng3lx"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/0F25D673668C9BB6F7DB14896727B7C62B52E006/">xcAng3lx</a></span></td>
+                <td sorttable_customkey="1500" class="right"> 1500</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="4.7"> 4.7</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34074</td>
+                <td sorttable_customkey="CKaps"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/c5153cfd9d4dec1e/">CKaps</a></span></td>
+                <td sorttable_customkey="1495" class="right"><span class="negative">-20</span>  1495</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="5.8">🠗 5.8</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34075</td>
+                <td sorttable_customkey="syrettaw"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/4028377773931197/">syrettaw</a></span></td>
+                <td sorttable_customkey="1489" class="right"> 1489</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34076</td>
+                <td sorttable_customkey="Foveros"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/e644058a5fad7b2d/">Foveros</a></span></td>
+                <td sorttable_customkey="1488" class="right"> 1488</td>
+                <td class="right">2</td>
+                <td class="right" sorttable_customkey="6.8"> 6.8</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34077</td>
+                <td sorttable_customkey="d"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/39c0e5b50af1c555/">d</a></span></td>
+                <td sorttable_customkey="1463" class="right"> 1463</td>
+                <td class="right">7</td>
+                <td class="right" sorttable_customkey="15.9"> 15.9</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34078</td>
+                <td sorttable_customkey="spooky290"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/5499062483536492/">spooky290</a></span></td>
+                <td sorttable_customkey="1462" class="right"> 1462</td>
+                <td class="right">2</td>
+                <td class="right" sorttable_customkey="7.6"> 7.6</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34079</td>
+                <td sorttable_customkey="Papaya7"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/5684626481603453/">Papaya7</a></span></td>
+                <td sorttable_customkey="1459" class="right"> 1459</td>
+                <td class="right">10</td>
+                <td class="right" sorttable_customkey="14.4"> 14.4</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34080</td>
+                <td sorttable_customkey="manuel180181"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/5407529582625578/">manuel180181</a></span></td>
+                <td sorttable_customkey="1458" class="right"> 1458</td>
+                <td class="right">10</td>
+                <td class="right" sorttable_customkey="21.2"> 21.2</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34081</td>
+                <td sorttable_customkey="Robynribbons"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/6379968225347990/">Robynribbons</a></span></td>
+                <td sorttable_customkey="1445" class="right"> 1445</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="5.8"> 5.8</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34082</td>
+                <td sorttable_customkey="Ciego1v4n"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/5692129494215401/">Ciego1v4n</a></span></td>
+                <td sorttable_customkey="1445" class="right"> 1445</td>
+                <td class="right">2</td>
+                <td class="right" sorttable_customkey="6.6"> 6.6</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34083</td>
+                <td sorttable_customkey="poopeebuttboy"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/6179467545578150741/">poopeebuttboy</a></span></td>
+                <td sorttable_customkey="1440" class="right"> 1440</td>
+                <td class="right">4</td>
+                <td class="right" sorttable_customkey="9.5"> 9.5</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34084</td>
+                <td sorttable_customkey="An0malyMak3r1618"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/8347495233587366241/">An0malyMak3r1618</a></span></td>
+                <td sorttable_customkey="1431" class="right"><span class="negative">-171</span>  1431</td>
+                <td class="right">3</td>
+                <td class="right" sorttable_customkey="12.5">🠕 12.5</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34085</td>
+                <td sorttable_customkey="Star"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/ad9c2ba57fd78bea/">Star</a></span></td>
+                <td sorttable_customkey="1421" class="right"><span class="new">NEW!</span>  1421</td>
+                <td class="right">9</td>
+                <td class="right" sorttable_customkey="16.6">🠕 16.6</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34086</td>
+                <td sorttable_customkey="Oviddius"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/F11374D3DAB4D353F75DBC6DD05A3FFF1CF2F6E0/">Oviddius</a></span></td>
+                <td sorttable_customkey="1421" class="right"> 1421</td>
+                <td class="right">403</td>
+                <td class="right" sorttable_customkey="27.0"> 27.0</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34087</td>
+                <td sorttable_customkey="DougieDeelux79"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/5142679524275566070/">DougieDeelux79</a></span></td>
+                <td sorttable_customkey="1413" class="right"> 1413</td>
+                <td class="right">3</td>
+                <td class="right" sorttable_customkey="9.0"> 9.0</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34088</td>
+                <td sorttable_customkey="CHEDEE87_AGG_"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/2246240835743508037/">CHEDEE87_AGG_</a></span></td>
+                <td sorttable_customkey="1413" class="right"> 1413</td>
+                <td class="right">17</td>
+                <td class="right" sorttable_customkey="12.9"> 12.9</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34089</td>
+                <td sorttable_customkey="Teamrose3246"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/8069BFBB11DC846F16CD71704136C2B442F13DEB/">Teamrose3246</a></span></td>
+                <td sorttable_customkey="1405" class="right"> 1405</td>
+                <td class="right">13</td>
+                <td class="right" sorttable_customkey="18.0"> 18.0</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34090</td>
+                <td sorttable_customkey="YvesDS"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/5559313823130882722/">YvesDS</a></span></td>
+                <td sorttable_customkey="1403" class="right"> 1403</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="2.7"> 2.7</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34091</td>
+                <td sorttable_customkey="Lisha"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/a4f02e00c9910d21/">Lisha</a></span></td>
+                <td sorttable_customkey="1396" class="right"> 1396</td>
+                <td class="right">2</td>
+                <td class="right" sorttable_customkey="12.5"> 12.5</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34092</td>
+                <td sorttable_customkey="Macromania"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/5964477316998848/">Macromania</a></span></td>
+                <td sorttable_customkey="1389" class="right"> 1389</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34093</td>
+                <td sorttable_customkey="Rhythm XXV"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/14BA9DC052CB4CFA185B528EE13304BF19F87245/">Rhythm XXV</a></span></td>
+                <td sorttable_customkey="1385" class="right"> 1385</td>
+                <td class="right">3</td>
+                <td class="right" sorttable_customkey="8.8"> 8.8</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34094</td>
+                <td sorttable_customkey="Deaf-Leopard"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/4360457370648429/">Deaf-Leopard</a></span></td>
+                <td sorttable_customkey="1368" class="right"> 1368</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34095</td>
+                <td sorttable_customkey="kratossam347"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/6021246507097447741/">kratossam347</a></span></td>
+                <td sorttable_customkey="1342" class="right"> 1342</td>
+                <td class="right">9</td>
+                <td class="right" sorttable_customkey="18.3"> 18.3</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34096</td>
+                <td sorttable_customkey="Engineer0_0"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/2677286520794336197/">Engineer0_0</a></span></td>
+                <td sorttable_customkey="1340" class="right"> 1340</td>
+                <td class="right">14</td>
+                <td class="right" sorttable_customkey="21.2"> 21.2</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34097</td>
+                <td sorttable_customkey="AiDecodes"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/8003245938849199448/">AiDecodes</a></span></td>
+                <td sorttable_customkey="1323" class="right"> 1323</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34098</td>
+                <td sorttable_customkey="TNchickie"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/6D11B561FEE241639A2323BC9342E79972F477BE/">TNchickie</a></span></td>
+                <td sorttable_customkey="1303" class="right"> 1303</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34099</td>
+                <td sorttable_customkey="MIND DRAGONZ917"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/CB3AE9E6ECF6C41BE72A47020ABA16E0C850E909/">MIND DRAGONZ917</a></span></td>
+                <td sorttable_customkey="1295" class="right"> 1295</td>
+                <td class="right">5</td>
+                <td class="right" sorttable_customkey="6.2"> 6.2</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34100</td>
+                <td sorttable_customkey="Pooldayz"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/5386608441437991/">Pooldayz</a></span></td>
+                <td sorttable_customkey="1291" class="right"> 1291</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="3.4"> 3.4</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34101</td>
+                <td sorttable_customkey="慈慈喵"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/steam/76561199054251668/">慈慈喵</a></span></td>
+                <td sorttable_customkey="1271" class="right"><span class="positive">+81</span>  1271</td>
+                <td class="right">13</td>
+                <td class="right" sorttable_customkey="16.8">🠕 16.8</td>
+                <td class="center" sorttable_customkey="steam"><span title="steam" class="platform steam"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34102</td>
+                <td sorttable_customkey="jorgFu"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/1930173113826560972/">jorgFu</a></span></td>
+                <td sorttable_customkey="1268" class="right"><span class="positive">+26</span>  1268</td>
+                <td class="right">6</td>
+                <td class="right" sorttable_customkey="13.0">🠕 13.0</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34103</td>
+                <td sorttable_customkey="awaris"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/2740355560759337512/">awaris</a></span></td>
+                <td sorttable_customkey="1263" class="right"> 1263</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34104</td>
+                <td sorttable_customkey="Kyle"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/f6856e644e68a1a7/">Kyle</a></span></td>
+                <td sorttable_customkey="1262" class="right"> 1262</td>
+                <td class="right">35</td>
+                <td class="right" sorttable_customkey="11.3"> 11.3</td>
+                <td class="center" sorttable_customkey="nintendo"><span title="nintendo" class="platform nintendo"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34105</td>
+                <td sorttable_customkey="SkyRocket"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/e3f4ff72dfc9460297131ee7693f210d/">SkyRocket</a></span></td>
+                <td sorttable_customkey="1257" class="right"><span class="negative">-52</span>  1257</td>
+                <td class="right">2</td>
+                <td class="right" sorttable_customkey="4.4">🠗 4.4</td>
+                <td class="center" sorttable_customkey="epic"><span title="epic" class="platform epic"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34106</td>
+                <td sorttable_customkey="WASABIA71"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/5534159103288536/">WASABIA71</a></span></td>
+                <td sorttable_customkey="1247" class="right"> 1247</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="5.0"> 5.0</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34107</td>
+                <td sorttable_customkey="Major_Bach"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/2678274300430626947/">Major_Bach</a></span></td>
+                <td sorttable_customkey="1242" class="right"><span class="negative">-220</span>  1242</td>
+                <td class="right">76</td>
+                <td class="right" sorttable_customkey="18.3">🠗 18.3</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34108</td>
+                <td sorttable_customkey="seventeennightmares"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/steam/76561199223582232/">seventeennightmares</a></span></td>
+                <td sorttable_customkey="1235" class="right"> 1235</td>
+                <td class="right">7</td>
+                <td class="right" sorttable_customkey="16.6"> 16.6</td>
+                <td class="center" sorttable_customkey="steam"><span title="steam" class="platform steam"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34109</td>
+                <td sorttable_customkey="Slime_lormike243"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/6401767008179289773/">Slime_lormike243</a></span></td>
+                <td sorttable_customkey="1214" class="right"><span class="new">NEW!</span>  1214</td>
+                <td class="right">12</td>
+                <td class="right" sorttable_customkey="22.2"> 22.2</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34110</td>
+                <td sorttable_customkey="Hulkster2953"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/8DA4A40A582CE935F834F2E455F3397DE117A6CF/">Hulkster2953</a></span></td>
+                <td sorttable_customkey="1184" class="right"> 1184</td>
+                <td class="right">3</td>
+                <td class="right" sorttable_customkey="9.0"> 9.0</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34111</td>
+                <td sorttable_customkey="SKAMESPITFIRE7"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/92AC71EFF1E194784F6D0B4DD92FFB09DF086F7F/">SKAMESPITFIRE7</a></span></td>
+                <td sorttable_customkey="1182" class="right"> 1182</td>
+                <td class="right">39</td>
+                <td class="right" sorttable_customkey="16.6"> 16.6</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34112</td>
+                <td sorttable_customkey="Nelliebutterz"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/5176688052386447/">Nelliebutterz</a></span></td>
+                <td sorttable_customkey="1171" class="right"> 1171</td>
+                <td class="right">3</td>
+                <td class="right" sorttable_customkey="9.6"> 9.6</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34113</td>
+                <td sorttable_customkey="TzToms"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/4733051106786652/">TzToms</a></span></td>
+                <td sorttable_customkey="1149" class="right"><span class="positive">+99</span>  1149</td>
+                <td class="right">15</td>
+                <td class="right" sorttable_customkey="13.6">🠕 13.6</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34114</td>
+                <td sorttable_customkey="77山羊"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/aa9e33f6d00e4b37b1a2221ba58f7819/">77山羊</a></span></td>
+                <td sorttable_customkey="1140" class="right"> 1140</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="epic"><span title="epic" class="platform epic"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34115</td>
+                <td sorttable_customkey="DHempel"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/9490066031035633/">DHempel</a></span></td>
+                <td sorttable_customkey="1109" class="right"> 1109</td>
+                <td class="right">4</td>
+                <td class="right" sorttable_customkey="10.0"> 10.0</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34116</td>
+                <td sorttable_customkey="HarleyCrow"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/7788497007188970453/">HarleyCrow</a></span></td>
+                <td sorttable_customkey="1106" class="right"> 1106</td>
+                <td class="right">5</td>
+                <td class="right" sorttable_customkey="11.1"> 11.1</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34117</td>
+                <td sorttable_customkey="Sabrina9025"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/013B53CFCD73AC8D218767D48CD638955973B7D7/">Sabrina9025</a></span></td>
+                <td sorttable_customkey="1106" class="right"> 1106</td>
+                <td class="right">85</td>
+                <td class="right" sorttable_customkey="16.4"> 16.4</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34118</td>
+                <td sorttable_customkey="XnolabreezzX"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/E089EB0013AD809A757645912607FADC01C36BE8/">XnolabreezzX</a></span></td>
+                <td sorttable_customkey="1096" class="right"> 1096</td>
+                <td class="right">22</td>
+                <td class="right" sorttable_customkey="16.7"> 16.7</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34119</td>
+                <td sorttable_customkey="Spicy_C416"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/2508553991939331991/">Spicy_C416</a></span></td>
+                <td sorttable_customkey="1066" class="right"> 1066</td>
+                <td class="right">0</td>
+                <td class="right" sorttable_customkey="0.0"> 0.0</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34120</td>
+                <td sorttable_customkey="Jooperdooper"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/4575397239255302/">Jooperdooper</a></span></td>
+                <td sorttable_customkey="1028" class="right"> 1028</td>
+                <td class="right">13</td>
+                <td class="right" sorttable_customkey="11.4"> 11.4</td>
+                <td class="center" sorttable_customkey="oculus"><span title="oculus" class="platform oculus"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34121</td>
+                <td sorttable_customkey="firstplace1212"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/954563607817610647/">firstplace1212</a></span></td>
+                <td sorttable_customkey="893" class="right"> 893</td>
+                <td class="right">1</td>
+                <td class="right" sorttable_customkey="2.5"> 2.5</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34122</td>
+                <td sorttable_customkey="elchuppacabra"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/6204e3fc45524ee5936fa5ae1dab7f16/">elchuppacabra</a></span></td>
+                <td sorttable_customkey="809" class="right"> 809</td>
+                <td class="right">2</td>
+                <td class="right" sorttable_customkey="6.4"> 6.4</td>
+                <td class="center" sorttable_customkey="epic"><span title="epic" class="platform epic"></span></td>
+            </tr>
+    
+            <tr class="inactive-disabled">
+                <td class="right">34123</td>
+                <td sorttable_customkey="DominiqueDeshaun"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/875929715895118053/">DominiqueDeshaun</a></span></td>
+                <td sorttable_customkey="773" class="right"> 773</td>
+                <td class="right">2</td>
+                <td class="right" sorttable_customkey="7.4"> 7.4</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34124</td>
+                <td sorttable_customkey="diselnetsalarca"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/550033770879396972/">diselnetsalarca</a></span></td>
+                <td sorttable_customkey="754" class="right"><span class="negative">-89</span>  754</td>
+                <td class="right">35</td>
+                <td class="right" sorttable_customkey="11.8">🠗 11.8</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34125</td>
+                <td sorttable_customkey="TH3_PISTO_21"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/40119837e20d49c3be7aa4864b4c3706/">TH3_PISTO_21</a></span></td>
+                <td sorttable_customkey="484" class="right"> 484</td>
+                <td class="right">2</td>
+                <td class="right" sorttable_customkey="4.8"> 4.8</td>
+                <td class="center" sorttable_customkey="epic"><span title="epic" class="platform epic"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34126</td>
+                <td sorttable_customkey="smokez57813"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/971238736823334280/">smokez57813</a></span></td>
+                <td sorttable_customkey="342" class="right"><span class="positive">+154</span>  342</td>
+                <td class="right">30</td>
+                <td class="right" sorttable_customkey="10.1">🠕 10.1</td>
+                <td class="center" sorttable_customkey="psn"><span title="psn" class="platform psn"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34127</td>
+                <td sorttable_customkey="Ghostlyskptk"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/760B3EBA9B2CB335566E3A1B3045C3864908F59E/">Ghostlyskptk</a></span></td>
+                <td sorttable_customkey="276" class="right"><span class="negative">-33</span>  276</td>
+                <td class="right">5</td>
+                <td class="right" sorttable_customkey="5.6">🠗 5.6</td>
+                <td class="center" sorttable_customkey="xbl"><span title="xbl" class="platform xbl"></span></td>
+            </tr>
+    
+            <tr class="">
+                <td class="right">34128</td>
+                <td sorttable_customkey="Siwszu69"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/d188e3c6b47b4cf7883cddd4a671b6a7/">Siwszu69</a></span></td>
+                <td sorttable_customkey="110" class="right"> 110</td>
+                <td class="right">19</td>
+                <td class="right" sorttable_customkey="11.4"> 11.4</td>
+                <td class="center" sorttable_customkey="epic"><span title="epic" class="platform epic"></span></td>
+            </tr>
+    
+        </table>
+        </div>
+    
+        <div class="pagination">
+            <a href="/zb/17.html">&laquo;</a>
+            <a href="#">18</a>
+            <a href="#">&raquo;</a>
+        </div>
+    
+    </div>
+    </div>
+
+    <script src="/js/theme.js"></script>
+    <script src="/js/toggleInactive.js"></script>
+    <script src="/js/lib/sortable.js"></script>
+    </body>
+    </html>
+    

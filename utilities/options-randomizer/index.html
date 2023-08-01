@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Match Options Randomizer - Quarter Zone</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/img/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/icon/favicon-96x96.png">
+    <meta name="msapplication-TileColor" content="#000">
+    <meta name="msapplication-TileImage" content="/img/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#000">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { padding: 0; margin: 0; }
+        html {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        body {
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .logo {
+            background: url(/img/icon/icon.png) no-repeat center center;
+            background-size: contain;
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+
+        #settings, #results {
+            background: black;
+            border: 1px solid white;
+            max-width: 500px;
+            width: 100vw;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        #settings {
+            position: relative;
+            padding: 10px;
+        }
+
+        #results:empty {
+            display: none;
+        }
+
+        .container {
+            cursor: pointer;
+            display: block;
+            position: relative;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #333;
+            padding-left: 35px;
+            line-height: 25px;
+            user-select: none;
+        }
+
+        .options {
+            display: none;
+        }
+
+        .option {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            color: black;
+            text-align: center;
+            margin-right: 5px;
+        }
+
+        .container input[type=checkbox] {
+            display: none;
+        }
+
+        .option .optionLabel {
+            background: white;
+            opacity: 1;
+            padding: 0 5px;
+            box-sizing: border-box;
+        }
+
+        .option input:not(:checked) ~ .optionLabel {
+            opacity: 0.5;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+        }
+
+        .container:hover input ~ .checkmark {
+            background-color: #ccc;
+        }
+
+        .container input:checked ~ .checkmark {
+            background-color: rgb(209, 174, 0);
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .container input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        .container .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
+
+        h1 {
+            color: rgb(209, 174, 0);
+            line-height: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            text-align: center;
+            font-size: 16px;
+            border: 0;
+        }
+
+        button {
+            cursor: pointer;
+            background: #eee;
+        }
+
+        .settingsResult {
+            width: 100%;
+            border: 1px solid white;
+            box-sizing: border-box;
+        }
+
+        .title, .titleValue { 
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            text-align: center;
+        }
+
+        .title { 
+            background: radial-gradient(closest-side, rgba(255, 255, 255, 0.2), black) no-repeat; 
+            background-position: center top; 
+            width: 60%;
+            border-right: 1px solid #ddd;
+        }
+
+        .titleValue { 
+            color: rgb(0, 200, 208);
+            padding: 10px 15px;
+            width: 40%;
+            text-align: left;
+        }
+
+        ul { width: 100%; display: flex; flex-direction: row; margin-bottom: 10px; }
+        li { display: inline-block; flex-grow: 1; text-align: center; color: black; cursor: pointer; }
+        li.zb { background: #76c4de; }
+        li.sa { background: #b176de; }
+        li.csa { background: #76de7b; }
+        li.greyed { opacity: 0.5; }
+
+        .optionToggle {
+            cursor: pointer;
+            display: inline-block;
+            background: rgb(209, 174, 0);;
+            line-height: 20px;
+            font-size: 20px;
+        }
+
+        .optionToggle:hover, .optionToggle:checked ~ label {
+            background: rgb(239, 174, 0);
+        }
+
+        .optionToggle:checked ~ .options {
+            display: initial;
+        }
+
+        .zb-settings, .sa-settings, .csa-settings {
+            display: none;
+        }
+
+        .active {
+            display: initial;
+        }
+    </style>
+</head>
+<body>
+<div id="settings">
+    <h1><div class="logo"></div>Options Randomizer</h1>
+    <ul class="modes">
+        <li class="zb">Zone Battle</li>
+        <li class="sa greyed">Score Attack</li>
+        <li class="csa greyed">Classic Score Attack</li>
+    </ul>
+
+    <div class="zb-settings active">
+        <label class="container" for="zbWinCount">
+            Win Count<input class="mainOption" type="checkbox" id="zbWinCount" name="zbWinCount" value="Win Count" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="zbWinCountOptions" />
+            <label class="optionToggle" for="zbWinCountOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="zbWinCountOptionsList" class="options">
+                <label class="option" for="zbWinCountOne"><input id="zbWinCountOne" name="zbWinCountOne" value="1" type="checkbox" checked /><span class="optionLabel">1</span></label>
+                <label class="option" for="zbWinCountTwo"><input id="zbWinCountTwo" name="zbWinCountTwo" value="2" type="checkbox" checked /><span class="optionLabel">2</span></label>
+                <label class="option" for="zbWinCountThree"><input id="zbWinCountThree" name="zbWinCountThree" value="3" type="checkbox" checked /><span class="optionLabel">3</span></label>
+                <label class="option" for="zbWinCountFour"><input id="zbWinCountFour" name="zbWinCountFour" value="4" type="checkbox" checked /><span class="optionLabel">4</span></label>
+                <label class="option" for="zbWinCountFive"><input id="zbWinCountFive" name="zbWinCountFive" value="5" type="checkbox" checked /><span class="optionLabel">5</span></label>
+                <label class="option" for="zbWinCountSix"><input id="zbWinCountSix" name="zbWinCountSix" value="6" type="checkbox" checked /><span class="optionLabel">6</span></label>
+                <label class="option" for="zbWinCountSeven"><input id="zbWinCountSeven" name="zbWinCountSeven" value="7" type="checkbox" checked /><span class="optionLabel">7</span></label>
+                <label class="option" for="zbWinCounteight"><input id="zbWinCounteight" name="zbWinCounteight" value="8" type="checkbox" checked /><span class="optionLabel">8</span></label>
+                <label class="option" for="zbWinCountNine"><input id="zbWinCountNine" name="zbWinCountNine" value="9" type="checkbox" checked /><span class="optionLabel">9</span></label>
+                <label class="option" for="zbWinCountTen"><input id="zbWinCountTen" name="zbWinCountTen" value="10" type="checkbox" checked /><span class="optionLabel">10</span></label>
+                <label class="option" for="zbWinCountFifteen"><input id="zbWinCountFifteen" name="zbWinCountFifteen" value="15" type="checkbox" checked /><span class="optionLabel">15</span></label>
+                <label class="option" for="zbWinCountTwenty"><input id="zbWinCountTwenty" name="zbWinCountTwenty" value="20" type="checkbox" checked /><span class="optionLabel">20</span></label>
+                <label class="option" for="zbWinCountThirty"><input id="zbWinCountThirty" name="zbWinCountThirty" value="30" type="checkbox" checked /><span class="optionLabel">30</span></label>
+                <label class="option" for="zbWinCountFifty"><input id="zbWinCountFifty" name="zbWinCountFifty" value="50" type="checkbox" checked /><span class="optionLabel">50</span></label>
+                <label class="option" for="zbWinCountHundred"><input id="zbWinCountHundred" name="zbWinCountHundred" value="100" type="checkbox" checked /><span class="optionLabel">100</span></label>
+            </div>
+        </label>
+        <label class="container" for="zbRuleTemplate">
+            Rule Template<input class="mainOption" type="checkbox" id="zbRuleTemplate" name="zbRuleTemplate" value="Rule Template" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="zbRuleTemplateOptions" />
+            <label class="optionToggle" for="zbRuleTemplateOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="zbRuleTemplateOptionsList" class="options">
+                <label class="option" for="zbRuleTemplateStandard"><input id="zbRuleTemplateStandard" name="zbRuleTemplateStandard" value="Standard" type="checkbox" checked /><span class="optionLabel">Standard</span></label>
+                <label class="option" for="zbRuleTemplateNoZone"><input id="zbRuleTemplateNoZone" name="zbRuleTemplateNoZone" value="No Zone" type="checkbox" checked /><span class="optionLabel">No Zone</span></label>
+            </div>
+        </label>
+        <label class="container" for="zbZone">
+            Zone<input class="mainOption" type="checkbox" id="zbZone" name="zbZone" value="Zone" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="zbZoneOptions" />
+            <label class="optionToggle" for="zbZoneOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="zbZoneOptionsList" class="options">
+                <label class="option" for="zbZoneOn"><input id="zbZoneOn" name="zbZoneOn" value="On" type="checkbox" checked /><span class="optionLabel">On</span></label>
+                <label class="option" for="zbZoneOff"><input id="zbZoneOff" name="zbZoneOff" value="Off" type="checkbox" checked /><span class="optionLabel">Off</span></label>
+            </div>
+        </label>
+        <label class="container" for="zbReceivingQueue">
+            Receiving Queue<input class="mainOption" type="checkbox" id="zbReceivingQueue" name="zbReceivingQueue" value="Receiving Queue" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="zbReceivingQueueoOptions" />
+            <label class="optionToggle" for="zbReceivingQueueoOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="zbReceivingQueueOptionsList" class="options">
+                <label class="option" for="zbReceivingQueueCombine"><input id="zbReceivingQueueCombine" name="zbReceivingQueueCombine" value="Combine" type="checkbox" checked /><span class="optionLabel">Combine</span></label>
+                <label class="option" for="zbReceivingQueueSeparate"><input id="zbReceivingQueueSeparate" name="zbReceivingQueueSeparate" value="Separate" type="checkbox" checked /><span class="optionLabel">Separate</span></label>
+                <label class="option" for="zbReceivingQueueEzCombine"><input id="zbReceivingQueueEzCombine" name="zbReceivingQueueEzCombine" value="EZ Combine" type="checkbox" checked /><span class="optionLabel">EZ Combine</span></label>
+            </div>
+        </label>
+        <label class="container" for="zbGarbageTiming">
+            Garbage Timing<input class="mainOption" type="checkbox" id="zbGarbageTiming" name="zbGarbageTiming" value="Garbage Timing" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="zbGarbageTimingOptions" />
+            <label class="optionToggle" for="zbGarbageTimingOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="zbGarbageTimingOptionsList" class="options">
+                <label class="option" for="zbGarbageTimingNoClear"><input id="zbGarbageTimingNoClear" name="zbGarbageTimingNoClear" value="No Clear" type="checkbox" checked /><span class="optionLabel">No Clear</span></label>
+                <label class="option" for="zbGarbageTimingNextDrop"><input id="zbGarbageTimingNextDrop" name="zbGarbageTimingNextDrop" value="Next Drop" type="checkbox" checked /><span class="optionLabel">Next Drop</span></label>
+            </div>
+        </label>
+        <label class="container" for="zbConstantSpeedLevel">
+            Constant Speed Level<input class="mainOption" type="checkbox" id="zbConstantSpeedLevel" name="zbConstantSpeedLevel" value="Constant Speed Level" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="zbConstantSpeedLevelOptions" /> <label class="optionToggle" for="zbConstantSpeedLevelOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="zbConstantSpeedLevelOptionsList" class="options">
+                <label class="option" for="zbConstantSpeedLevel1"><input id="zbConstantSpeedLevel1" name="zbConstantSpeedLevel1" value="1" type="checkbox" checked /><span class="optionLabel">1</span></label>
+                <label class="option" for="zbConstantSpeedLevel2"><input id="zbConstantSpeedLevel2" name="zbConstantSpeedLevel2" value="2" type="checkbox" checked /><span class="optionLabel">2</span></label>
+                <label class="option" for="zbConstantSpeedLevel3"><input id="zbConstantSpeedLevel3" name="zbConstantSpeedLevel3" value="3" type="checkbox" checked /><span class="optionLabel">3</span></label>
+                <label class="option" for="zbConstantSpeedLevel4"><input id="zbConstantSpeedLevel4" name="zbConstantSpeedLevel4" value="4" type="checkbox" checked /><span class="optionLabel">4</span></label>
+                <label class="option" for="zbConstantSpeedLevel5"><input id="zbConstantSpeedLevel5" name="zbConstantSpeedLevel5" value="5" type="checkbox" checked /><span class="optionLabel">5</span></label>
+                <label class="option" for="zbConstantSpeedLevel6"><input id="zbConstantSpeedLevel6" name="zbConstantSpeedLevel6" value="6" type="checkbox" checked /><span class="optionLabel">6</span></label>
+                <label class="option" for="zbConstantSpeedLevel7"><input id="zbConstantSpeedLevel7" name="zbConstantSpeedLevel7" value="7" type="checkbox" checked /><span class="optionLabel">7</span></label>
+                <label class="option" for="zbConstantSpeedLevel8"><input id="zbConstantSpeedLevel8" name="zbConstantSpeedLevel8" value="8" type="checkbox" checked /><span class="optionLabel">8</span></label>
+                <label class="option" for="zbConstantSpeedLevel9"><input id="zbConstantSpeedLevel9" name="zbConstantSpeedLevel9" value="9" type="checkbox" checked /><span class="optionLabel">9</span></label>
+                <label class="option" for="zbConstantSpeedLevel10"><input id="zbConstantSpeedLevel10" name="zbConstantSpeedLevel10" value="10" type="checkbox" checked /><span class="optionLabel">10</span></label>
+                <label class="option" for="zbConstantSpeedLevel11"><input id="zbConstantSpeedLevel11" name="zbConstantSpeedLevel11" value="11" type="checkbox" checked /><span class="optionLabel">11</span></label>
+                <label class="option" for="zbConstantSpeedLevel12"><input id="zbConstantSpeedLevel12" name="zbConstantSpeedLevel12" value="12" type="checkbox" checked /><span class="optionLabel">12</span></label>
+                <label class="option" for="zbConstantSpeedLevel13"><input id="zbConstantSpeedLevel13" name="zbConstantSpeedLevel13" value="13" type="checkbox" checked /><span class="optionLabel">13</span></label>
+                <label class="option" for="zbConstantSpeedLevel14"><input id="zbConstantSpeedLevel14" name="zbConstantSpeedLevel14" value="14" type="checkbox" checked /><span class="optionLabel">14</span></label>
+                <label class="option" for="zbConstantSpeedLevel15"><input id="zbConstantSpeedLevel15" name="zbConstantSpeedLevel15" value="15" type="checkbox" checked /><span class="optionLabel">15</span></label>
+                <label class="option" for="zbConstantSpeedLevel16"><input id="zbConstantSpeedLevel16" name="zbConstantSpeedLevel16" value="16" type="checkbox" checked /><span class="optionLabel">16</span></label>
+                <label class="option" for="zbConstantSpeedLevel17"><input id="zbConstantSpeedLevel17" name="zbConstantSpeedLevel17" value="17" type="checkbox" checked /><span class="optionLabel">17</span></label>
+                <label class="option" for="zbConstantSpeedLevel18"><input id="zbConstantSpeedLevel18" name="zbConstantSpeedLevel18" value="18" type="checkbox" checked /><span class="optionLabel">18</span></label>
+                <label class="option" for="zbConstantSpeedLevel19"><input id="zbConstantSpeedLevel19" name="zbConstantSpeedLevel19" value="19" type="checkbox" checked /><span class="optionLabel">19</span></label>
+                <label class="option" for="zbConstantSpeedLevel20"><input id="zbConstantSpeedLevel20" name="zbConstantSpeedLevel20" value="20" type="checkbox" checked /><span class="optionLabel">20</span></label>
+                <label class="option" for="zbConstantSpeedLevel21"><input id="zbConstantSpeedLevel21" name="zbConstantSpeedLevel21" value="21" type="checkbox" checked /><span class="optionLabel">21</span></label>
+                <label class="option" for="zbConstantSpeedLevel22"><input id="zbConstantSpeedLevel22" name="zbConstantSpeedLevel22" value="22" type="checkbox" checked /><span class="optionLabel">22</span></label>
+                <label class="option" for="zbConstantSpeedLevel23"><input id="zbConstantSpeedLevel23" name="zbConstantSpeedLevel23" value="23" type="checkbox" checked /><span class="optionLabel">23</span></label>
+                <label class="option" for="zbConstantSpeedLevel24"><input id="zbConstantSpeedLevel24" name="zbConstantSpeedLevel24" value="24" type="checkbox" checked /><span class="optionLabel">24</span></label>
+                <label class="option" for="zbConstantSpeedLevel25"><input id="zbConstantSpeedLevel25" name="zbConstantSpeedLevel25" value="25" type="checkbox" checked /><span class="optionLabel">25</span></label>
+                <label class="option" for="zbConstantSpeedLevel26"><input id="zbConstantSpeedLevel26" name="zbConstantSpeedLevel26" value="26" type="checkbox" checked /><span class="optionLabel">26</span></label>
+                <label class="option" for="zbConstantSpeedLevel27"><input id="zbConstantSpeedLevel27" name="zbConstantSpeedLevel27" value="27" type="checkbox" checked /><span class="optionLabel">27</span></label>
+                <label class="option" for="zbConstantSpeedLevel28"><input id="zbConstantSpeedLevel28" name="zbConstantSpeedLevel28" value="28" type="checkbox" checked /><span class="optionLabel">28</span></label>
+                <label class="option" for="zbConstantSpeedLevel29"><input id="zbConstantSpeedLevel29" name="zbConstantSpeedLevel29" value="29" type="checkbox" checked /><span class="optionLabel">29</span></label>
+                <label class="option" for="zbConstantSpeedLevel30"><input id="zbConstantSpeedLevel30" name="zbConstantSpeedLevel30" value="30" type="checkbox" checked /><span class="optionLabel">30</span></label>
+            </div>
+        </label>
+        <label class="container" for="zbSpeedMod">
+            Speed Mod<input class="mainOption" type="checkbox" id="zbSpeedMod" name="zbSpeedMod" value="Speed Mod" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="zbSpeedModOptions" />
+            <label class="optionToggle" for="zbSpeedModOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="zbSpeedModOptionsList" class="options">
+                <label class="option" for="zbSpeedModSlow"><input id="zbSpeedModSlow" name="zbSpeedModSlow" value="Slow" type="checkbox" checked /><span class="optionLabel">Slow</span></label>
+                <label class="option" for="zbSpeedModNormal"><input id="zbSpeedModNormal" name="zbSpeedModNormal" value="Normal" type="checkbox" checked /><span class="optionLabel">Normal</span></label>
+                <label class="option" for="zbSpeedModFast"><input id="zbSpeedModFast" name="zbSpeedModFast" value="Fast" type="checkbox" checked /><span class="optionLabel">Fast</span></label>
+            </div>
+        </label>
+        <label class="container" for="zbPhaseProgression">
+            Phase Progression<input class="mainOption" type="checkbox" id="zbPhaseProgression" name="zbPhaseProgression" value="Phase Progression" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="zbPhaseProgressionOptions" /> <label class="optionToggle" for="zbPhaseProgressionOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="zbPhaseProgressionOptionsList" class="options">
+                <label class="option" for="zbPhaseProgressionSlow"><input id="zbPhaseProgressionSlow" name="zbPhaseProgressionSlow" value="Slow" type="checkbox" checked /><span class="optionLabel">Slow</span></label>
+                <label class="option" for="zbPhaseProgressionNormal"><input id="zbPhaseProgressionNormal" name="zbPhaseProgressionNormal" value="Normal" type="checkbox" checked /><span class="optionLabel">Normal</span></label>
+                <label class="option" for="zbPhaseProgressionFast"><input id="zbPhaseProgressionFast" name="zbPhaseProgressionFast" value="Fast" type="checkbox" checked /><span class="optionLabel">Fast</span></label>
+            </div>
+        </label>
+        <label class="container" for="lineGapPhaseOne">
+            Line Gaps Phase 1<input class="mainOption" type="checkbox" id="lineGapPhaseOne" name="lineGapPhaseOne" value="Line Gaps Phase 1" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="lineGapPhaseOneOptions" /> <label class="optionToggle" for="lineGapPhaseOneOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="lineGapPhaseOneOptionsList" class="options">
+                <label class="option" for="lineGapPhaseOne1"><input id="lineGapPhaseOne1" name="lineGapPhaseOne1" value="1" type="checkbox" checked /><span class="optionLabel">1</span></label>
+                <label class="option" for="lineGapPhaseOne2"><input id="lineGapPhaseOne2" name="lineGapPhaseOne2" value="2" type="checkbox" checked /><span class="optionLabel">2</span></label>
+                <label class="option" for="lineGapPhaseOne3"><input id="lineGapPhaseOne3" name="lineGapPhaseOne3" value="3" type="checkbox" checked /><span class="optionLabel">3</span></label>
+                <label class="option" for="lineGapPhaseOne4"><input id="lineGapPhaseOne4" name="lineGapPhaseOne4" value="4" type="checkbox" checked /><span class="optionLabel">4</span></label>
+                <label class="option" for="lineGapPhaseOne5"><input id="lineGapPhaseOne5" name="lineGapPhaseOne5" value="5" type="checkbox" checked /><span class="optionLabel">5</span></label>
+            </div>
+        </label>
+        <label class="container" for="zbLineGapPhaseTwo">
+            Line Gaps Phase 2<input class="mainOption" type="checkbox" id="zbLineGapPhaseTwo" name="zbLineGapPhaseTwo" value="Line Gaps Phase 2" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="zbLineGapPhaseTwoOptions" /> <label class="optionToggle" for="zbLineGapPhaseTwoOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="zbLineGapPhaseTwoOptionsList" class="options">
+                <label class="option" for="zbLineGapPhaseTwo1"><input id="zbLineGapPhaseTwo1" name="zbLineGapPhaseTwo1" value="1" type="checkbox" checked /><span class="optionLabel">1</span></label>
+                <label class="option" for="zbLineGapPhaseTwo2"><input id="zbLineGapPhaseTwo2" name="zbLineGapPhaseTwo2" value="2" type="checkbox" checked /><span class="optionLabel">2</span></label>
+                <label class="option" for="zbLineGapPhaseTwo3"><input id="zbLineGapPhaseTwo3" name="zbLineGapPhaseTwo3" value="3" type="checkbox" checked /><span class="optionLabel">3</span></label>
+                <label class="option" for="zbLineGapPhaseTwo4"><input id="zbLineGapPhaseTwo4" name="zbLineGapPhaseTwo4" value="4" type="checkbox" checked /><span class="optionLabel">4</span></label>
+                <label class="option" for="zbLineGapPhaseTwo5"><input id="zbLineGapPhaseTwo5" name="zbLineGapPhaseTwo5" value="5" type="checkbox" checked /><span class="optionLabel">5</span></label>
+            </div>
+        </label>
+        <label class="container" for="zbLineGapPhaseThree">
+            Line Gaps Phase 3<input class="mainOption" type="checkbox" id="zbLineGapPhaseThree" name="zbLineGapPhaseThree" value="Line Gaps Phase 3" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="zbLineGapPhaseThreeOptions" /> <label class="optionToggle" for="zbLineGapPhaseThreeOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="zbLineGapPhaseThreeOptionsList" class="options">
+                <label class="option" for="zbLineGapPhaseThree1"><input id="zbLineGapPhaseThree1" name="zbLineGapPhaseThree1" value="1" type="checkbox" checked /><span class="optionLabel">1</span></label>
+                <label class="option" for="zbLineGapPhaseThree2"><input id="zbLineGapPhaseThree2" name="zbLineGapPhaseThree2" value="2" type="checkbox" checked /><span class="optionLabel">2</span></label>
+                <label class="option" for="zbLineGapPhaseThree3"><input id="zbLineGapPhaseThree3" name="zbLineGapPhaseThree3" value="3" type="checkbox" checked /><span class="optionLabel">3</span></label>
+                <label class="option" for="zbLineGapPhaseThree4"><input id="zbLineGapPhaseThree4" name="zbLineGapPhaseThree4" value="4" type="checkbox" checked /><span class="optionLabel">4</span></label>
+                <label class="option" for="zbLineGapPhaseThree5"><input id="zbLineGapPhaseThree5" name="zbLineGapPhaseThree5" value="5" type="checkbox" checked /><span class="optionLabel">5</span></label>
+            </div>
+        </label>
+        <label class="container" for="zbTetriminoRandomizer">
+            Tetrimino Randomizer<input class="mainOption" type="checkbox" id="zbTetriminoRandomizer" name="zbTetriminoRandomizer" value="Tetrimino Randomizer" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="zbTetriminoRandomizerOptions" /> <label class="optionToggle" for="zbTetriminoRandomizerOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="zbTetriminoRandomizerOptionsList" class="options">
+                <label class="option" for="zbTetriminoRandomizer7Bag"><input id="zbTetriminoRandomizer7Bag" name="zbTetriminoRandomizer7Bag" value="7-Bag" type="checkbox" checked /><span class="optionLabel">7-Bag</span></label>
+                <label class="option" for="zbTetriminoRandomizerLimited"><input id="zbTetriminoRandomizerLimited" name="zbTetriminoRandomizerLimited" value="Limited" type="checkbox" checked /><span class="optionLabel">Limited</span></label>
+                <label class="option" for="zbTetriminoRandomizerCLasic"><input id="zbTetriminoRandomizerCLasic" name="zbTetriminoRandomizerCLasic" value="Classic" type="checkbox" checked /><span class="optionLabel">Classic</span></label>
+            </div>
+        </label>
+        <label class="container" for="zbZoneMeterFill">
+            Zone Meter Fill<input class="mainOption" type="checkbox" id="zbZoneMeterFill" name="zbZoneMeterFill" value="Zone Meter Fill" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="zbZoneMeterFillOptions" />
+            <label class="optionToggle" for="zbZoneMeterFillOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="zbZoneMeterFillOptionsList" class="options">
+                <label class="option" for="zbZoneMeterFillVerySlow"><input id="zbZoneMeterFillVerySlow" name="zbZoneMeterFillVerySlow" value="Very Slow" type="checkbox" checked /><span class="optionLabel">Very Slow</span></label>
+                <label class="option" for="zbZoneMeterFillSlow"><input id="zbZoneMeterFillSlow" name="zbZoneMeterFillSlow" value="Slow" type="checkbox" checked /><span class="optionLabel">Slow</span></label>
+                <label class="option" for="zbZoneMeterFillNormal"><input id="zbZoneMeterFillNormal" name="zbZoneMeterFillNormal" value="Normal" type="checkbox" checked /><span class="optionLabel">Normal</span></label>
+                <label class="option" for="zbZoneMeterFillFast"><input id="zbZoneMeterFillFast" name="zbZoneMeterFillFast" value="Fast" type="checkbox" checked /><span class="optionLabel">Fast</span></label>
+                <label class="option" for="zbZoneMeterFillVeryFast"><input id="zbZoneMeterFillVeryFast" name="zbZoneMeterFillVeryFast" value="Very Fast" type="checkbox" checked /><span class="optionLabel">Very Fast</span></label>
+            </div>
+        </label>
+        <label class="container" for="zbZoneDuration">
+            Zone Duration<input class="mainOption" type="checkbox" id="zbZoneDuration" name="zbZoneDuration" value="Zone Duration" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="zbZoneDurationOptions" />
+            <label class="optionToggle" for="zbZoneDurationOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="zbZoneDurationOptionsList" class="options">
+                <label class="option" for="zbZoneDurationVeryLong"><input id="zbZoneDurationVeryLong" name="zbZoneDurationVeryLong" value="Very Long" type="checkbox" checked /><span class="optionLabel">Very Long</span></label>
+                <label class="option" for="zbZoneDurationLong"><input id="zbZoneDurationLong" name="zbZoneDurationLong" value="Long" type="checkbox" checked /><span class="optionLabel">Long</span></label>
+                <label class="option" for="zbZoneDurationNormal"><input id="zbZoneDurationNormal" name="zbZoneDurationNormal" value="Normal" type="checkbox" checked /><span class="optionLabel">Normal</span></label>
+                <label class="option" for="zbZoneDurationFast"><input id="zbZoneDurationFast" name="zbZoneDurationFast" value="Fast" type="checkbox" checked /><span class="optionLabel">Fast</span></label>
+                <label class="option" for="zbZoneDurationVeryFast"><input id="zbZoneDurationVeryFast" name="zbZoneDurationVeryFast" value="Very Fast" type="checkbox" checked /><span class="optionLabel">Very Fast</span></label>
+            </div>
+        </label>
+        <label class="container" for="zbZoneAttackPower">
+            Zone Attack Power<input class="mainOption" type="checkbox" id="zbZoneAttackPower" name="zbZoneAttackPower" value="Zone Attack Power" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="zbZoneAttackPowerOptions" /> <label class="optionToggle" for="zbZoneAttackPowerOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="zbZoneAttackPowerOptionsList" class="options">
+                <label class="option" for="zbZoneAttackPower50"><input id="zbZoneAttackPower50" name="zbZoneAttackPower50" value="50%" type="checkbox" checked /><span class="optionLabel">50%</span></label>
+                <label class="option" for="zbZoneAttackPower75"><input id="zbZoneAttackPower75" name="zbZoneAttackPower75" value="75%" type="checkbox" checked /><span class="optionLabel">75%</span></label>
+                <label class="option" for="zbZoneAttackPower100"><input id="zbZoneAttackPower100" name="zbZoneAttackPower100" value="100%" type="checkbox" checked /><span class="optionLabel">100%</span></label>
+                <label class="option" for="zbZoneAttackPower125"><input id="zbZoneAttackPower125" name="zbZoneAttackPower125" value="125%" type="checkbox" checked /><span class="optionLabel">125%</span></label>
+                <label class="option" for="zbZoneAttackPower150"><input id="zbZoneAttackPower150" name="zbZoneAttackPower150" value="150%" type="checkbox" checked /><span class="optionLabel">150%</span></label>
+            </div>
+        </label>
+    </div>
+
+    <div class="sa-settings">
+        <label class="container" for="saWinCount">
+            Win Count<input class="mainOption" type="checkbox" id="saWinCount" name="saWinCount" value="Win Count" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="saWinCountOptions" />
+            <label class="optionToggle" for="saWinCountOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saWinCountOptionsList" class="options">
+                <label class="option" for="saWinCountOne"><input id="saWinCountOne" name="saWinCountOne" value="1" type="checkbox" checked /><span class="optionLabel">1</span></label>
+                <label class="option" for="saWinCountTwo"><input id="saWinCountTwo" name="saWinCountTwo" value="2" type="checkbox" checked /><span class="optionLabel">2</span></label>
+                <label class="option" for="saWinCountThree"><input id="saWinCountThree" name="saWinCountThree" value="3" type="checkbox" checked /><span class="optionLabel">3</span></label>
+                <label class="option" for="saWinCountFour"><input id="saWinCountFour" name="saWinCountFour" value="4" type="checkbox" checked /><span class="optionLabel">4</span></label>
+                <label class="option" for="saWinCountFive"><input id="saWinCountFive" name="saWinCountFive" value="5" type="checkbox" checked /><span class="optionLabel">5</span></label>
+                <label class="option" for="saWinCountSix"><input id="saWinCountSix" name="saWinCountSix" value="6" type="checkbox" checked /><span class="optionLabel">6</span></label>
+                <label class="option" for="saWinCountSeven"><input id="saWinCountSeven" name="saWinCountSeven" value="7" type="checkbox" checked /><span class="optionLabel">7</span></label>
+                <label class="option" for="saWinCounteight"><input id="saWinCounteight" name="saWinCounteight" value="8" type="checkbox" checked /><span class="optionLabel">8</span></label>
+                <label class="option" for="saWinCountNine"><input id="saWinCountNine" name="saWinCountNine" value="9" type="checkbox" checked /><span class="optionLabel">9</span></label>
+                <label class="option" for="saWinCountTen"><input id="saWinCountTen" name="saWinCountTen" value="10" type="checkbox" checked /><span class="optionLabel">10</span></label>
+                <label class="option" for="saWinCountFifteen"><input id="saWinCountFifteen" name="saWinCountFifteen" value="15" type="checkbox" checked /><span class="optionLabel">15</span></label>
+                <label class="option" for="saWinCountTwenty"><input id="saWinCountTwenty" name="saWinCountTwenty" value="20" type="checkbox" checked /><span class="optionLabel">20</span></label>
+                <label class="option" for="saWinCountThirty"><input id="saWinCountThirty" name="saWinCountThirty" value="30" type="checkbox" checked /><span class="optionLabel">30</span></label>
+                <label class="option" for="saWinCountFifty"><input id="saWinCountFifty" name="saWinCountFifty" value="50" type="checkbox" checked /><span class="optionLabel">50</span></label>
+                <label class="option" for="saWinCountHundred"><input id="saWinCountHundred" name="saWinCountHundred" value="100" type="checkbox" checked /><span class="optionLabel">100</span></label>
+            </div>
+        </label>
+        <label class="container" for="saRuleTemplate">
+            Rule Template<input class="mainOption" type="checkbox" id="saRuleTemplate" name="saRuleTemplate" value="Rule Template" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="saRuleTemplateOptions" />
+            <label class="optionToggle" for="saRuleTemplateOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saRuleTemplateOptionsList" class="options">
+                <label class="option" for="saRuleTemplateStandard"><input id="saRuleTemplateStandard" name="saRuleTemplateStandard" value="Standard" type="checkbox" checked /><span class="optionLabel">Standard</span></label>
+                <label class="option" for="saRuleTemplateMarathon"><input id="saRuleTemplateMarathon" name="saRuleTemplateMarathon" value="Marathon" type="checkbox" checked /><span class="optionLabel">Marathon</span></label>
+                <label class="option" for="saRuleTemplateUltra"><input id="saRuleTemplateUltra" name="saRuleTemplateUltra" value="Ultra" type="checkbox" checked /><span class="optionLabel">Ultra</span></label>
+            </div>
+        </label>
+        <label class="container" for="saBattleType">
+            Battle Type<input class="mainOption" type="checkbox" id="saBattleType" name="saBattleType" value="Battle Type" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="saBattleTypeOptions" />
+            <label class="optionToggle" for="saBattleTypeOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saBattleTypeOptionsList" class="options">
+                <label class="option" for="saBattleTypeMarathon"><input id="saBattleTypeMarathon" name="saBattleTypeMarathon" value="Marathon" type="checkbox" checked /><span class="optionLabel">Marathon</span></label>
+                <label class="option" for="saBattleTypeUltra"><input id="saBattleTypeUltra" name="saBattleTypeUltra" value="Ultra" type="checkbox" checked /><span class="optionLabel">Ultra</span></label>
+            </div>
+        </label>
+        <label class="container" for="saLineClearGoal">
+            Line Clear Goal<input class="mainOption" type="checkbox" id="saLineClearGoal" name="saLineClearGoal" value="Line Clear Goal" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="saLineClearGoalOptions" />
+            <label class="optionToggle" for="saLineClearGoalOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saLineClearGoalOptionsList" class="options">
+                <label class="option" for="saLineClearGoalNone"><input id="saLineClearGoalNone" name="saLineClearGoalNone" value="None" type="checkbox" checked /><span class="optionLabel">None</span></label>
+                <label class="option" for="saLineClearGoal50"><input id="saLineClearGoal50" name="saLineClearGoal50" value="50" type="checkbox" checked /><span class="optionLabel">50</span></label>
+                <label class="option" for="saLineClearGoal100"><input id="saLineClearGoal100" name="saLineClearGoal100" value="100" type="checkbox" checked /><span class="optionLabel">100</span></label>
+                <label class="option" for="saLineClearGoal150"><input id="saLineClearGoal150" name="saLineClearGoal150" value="150" type="checkbox" checked /><span class="optionLabel">150</span></label>
+                <label class="option" for="saLineClearGoal200"><input id="saLineClearGoal200" name="saLineClearGoal200" value="200" type="checkbox" checked /><span class="optionLabel">200</span></label>
+                <label class="option" for="saLineClearGoal250"><input id="saLineClearGoal250" name="saLineClearGoal250" value="250" type="checkbox" checked /><span class="optionLabel">250</span></label>
+                <label class="option" for="saLineClearGoal300"><input id="saLineClearGoal300" name="saLineClearGoal300" value="300" type="checkbox" checked /><span class="optionLabel">300</span></label>
+                <label class="option" for="saLineClearGoal350"><input id="saLineClearGoal350" name="saLineClearGoal350" value="350" type="checkbox" checked /><span class="optionLabel">350</span></label>
+                <label class="option" for="saLineClearGoal400"><input id="saLineClearGoal400" name="saLineClearGoal400" value="400" type="checkbox" checked /><span class="optionLabel">400</span></label>
+                <label class="option" for="saLineClearGoal450"><input id="saLineClearGoal450" name="saLineClearGoal450" value="450" type="checkbox" checked /><span class="optionLabel">450</span></label>
+                <label class="option" for="saLineClearGoal500"><input id="saLineClearGoal500" name="saLineClearGoal500" value="500" type="checkbox" checked /><span class="optionLabel">500</span></label>
+                <label class="option" for="saLineClearGoal550"><input id="saLineClearGoal550" name="saLineClearGoal550" value="550" type="checkbox" checked /><span class="optionLabel">550</span></label>
+                <label class="option" for="saLineClearGoal600"><input id="saLineClearGoal600" name="saLineClearGoal600" value="600" type="checkbox" checked /><span class="optionLabel">600</span></label>
+                <label class="option" for="saLineClearGoal650"><input id="saLineClearGoal650" name="saLineClearGoal650" value="650" type="checkbox" checked /><span class="optionLabel">650</span></label>
+                <label class="option" for="saLineClearGoal700"><input id="saLineClearGoal700" name="saLineClearGoal700" value="700" type="checkbox" checked /><span class="optionLabel">700</span></label>
+                <label class="option" for="saLineClearGoal750"><input id="saLineClearGoal750" name="saLineClearGoal750" value="750" type="checkbox" checked /><span class="optionLabel">750</span></label>
+                <label class="option" for="saLineClearGoal800"><input id="saLineClearGoal800" name="saLineClearGoal800" value="800" type="checkbox" checked /><span class="optionLabel">800</span></label>
+                <label class="option" for="saLineClearGoal850"><input id="saLineClearGoal850" name="saLineClearGoal850" value="850" type="checkbox" checked /><span class="optionLabel">850</span></label>
+                <label class="option" for="saLineClearGoal900"><input id="saLineClearGoal900" name="saLineClearGoal900" value="900" type="checkbox" checked /><span class="optionLabel">900</span></label>
+                <label class="option" for="saLineClearGoal950"><input id="saLineClearGoal950" name="saLineClearGoal950" value="950" type="checkbox" checked /><span class="optionLabel">950</span></label>
+                <label class="option" for="saLineClearGoal1000"><input id="saLineClearGoal1000" name="saLineClearGoal1000" value="1000" type="checkbox" checked /><span class="optionLabel">1000</span></label>
+            </div>
+        </label>
+        <label class="container" for="saTimeLimit">
+            Time Limit<input class="mainOption" type="checkbox" id="saTimeLimit" name="saTimeLimit" value="Time Limit" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="saTimeLimitOptions" />
+            <label class="optionToggle" for="saTimeLimitOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saTimeLimitOptionsList" class="options">
+                <label class="option" for="saTimeLimit030"><input id="saTimeLimit030" name="saTimeLimit030" value="0:30" type="checkbox" checked /><span class="optionLabel">0:30</span></label>
+                <label class="option" for="saTimeLimit100"><input id="saTimeLimit100" name="saTimeLimit100" value="1:00" type="checkbox" checked /><span class="optionLabel">1:00</span></label>
+                <label class="option" for="saTimeLimit130"><input id="saTimeLimit130" name="saTimeLimit130" value="1:30" type="checkbox" checked /><span class="optionLabel">1:30</span></label>
+                <label class="option" for="saTimeLimit200"><input id="saTimeLimit200" name="saTimeLimit200" value="2:00" type="checkbox" checked /><span class="optionLabel">2:00</span></label>
+                <label class="option" for="saTimeLimit300"><input id="saTimeLimit300" name="saTimeLimit300" value="3:00" type="checkbox" checked /><span class="optionLabel">3:00</span></label>
+                <label class="option" for="saTimeLimit500"><input id="saTimeLimit500" name="saTimeLimit500" value="5:00" type="checkbox" checked /><span class="optionLabel">5:00</span></label>
+                <label class="option" for="saTimeLimit1000"><input id="saTimeLimit1000" name="saTimeLimit1000" value="10:00" type="checkbox" checked /><span class="optionLabel">10:00</span></label>
+            </div>
+        </label>
+        <label class="container" for="saConstantSpeedLevel">
+            Constant Speed Level<input class="mainOption" type="checkbox" id="saConstantSpeedLevel" name="saConstantSpeedLevel" value="Constant Speed Level" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="saConstantSpeedLevelOptions" />
+            <label class="optionToggle" for="saConstantSpeedLevelOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saConstantSpeedLevelOptionsList" class="options">
+                <label class="option" for="saConstantSpeedLevelOn"><input id="saConstantSpeedLevelOn" name="saConstantSpeedLevelOn" value="On" type="checkbox" checked /><span class="optionLabel">On</span></label>
+                <label class="option" for="saConstantSpeedLevelOff"><input id="saConstantSpeedLevelOff" name="saConstantSpeedLevelOff" value="Off" type="checkbox" checked /><span class="optionLabel">Off</span></label>
+            </div>
+        </label>
+        <label class="container" for="saGameOver">
+            Game Over<input class="mainOption" type="checkbox" id="saGameOver" name="saGameOver" value="Game Over" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="saGameOverOptions" />
+            <label class="optionToggle" for="saGameOverOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saGameOverOptionsList" class="options">
+                <label class="option" for="saGameOverOn"><input id="saGameOverOn" name="saGameOverOn" value="On" type="checkbox" checked /><span class="optionLabel">On</span></label>
+                <label class="option" for="saGameOverOff"><input id="saGameOverOff" name="saGameOverOff" value="Off" type="checkbox" checked /><span class="optionLabel">Off</span></label>
+            </div>
+        </label>
+        <label class="container" for="saHurryUp">
+            Hurry Up<input class="mainOption" type="checkbox" id="saHurryUp" name="saHurryUp" value="Hurry Up" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="saHurryUpOptions" />
+            <label class="optionToggle" for="saHurryUpOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saHurryUpOptionsList" class="options">
+                <label class="option" for="saHurryUpOn"><input id="saHurryUpOn" name="saHurryUpOn" value="On" type="checkbox" checked /><span class="optionLabel">On</span></label>
+                <label class="option" for="saHurryUpOff"><input id="saHurryUpOff" name="saHurryUpOff" value="Off" type="checkbox" checked /><span class="optionLabel">Off</span></label>
+            </div>
+        </label>
+        <label class="container" for="saTetriminoRandomizer">
+            Tetrimino Randomizer<input class="mainOption" type="checkbox" id="saTetriminoRandomizer" name="saTetriminoRandomizer" value="Tetrimino Randomizer" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="saTetriminoRandomizerOptions" /> <label class="optionToggle" for="saTetriminoRandomizerOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saTetriminoRandomizerOptionsList" class="options">
+                <label class="option" for="saTetriminoRandomizer7Bag"><input id="saTetriminoRandomizer7Bag" name="saTetriminoRandomizer7Bag" value="7-Bag" type="checkbox" checked /><span class="optionLabel">7-Bag</span></label>
+                <label class="option" for="saTetriminoRandomizerLimited"><input id="saTetriminoRandomizerLimited" name="saTetriminoRandomizerLimited" value="Limited" type="checkbox" checked /><span class="optionLabel">Limited</span></label>
+                <label class="option" for="saTetriminoRandomizerCLasic"><input id="saTetriminoRandomizerCLasic" name="saTetriminoRandomizerCLasic" value="Classic" type="checkbox" checked /><span class="optionLabel">Classic</span></label>
+            </div>
+        </label>
+        <label class="container" for="saScoringTemplate">
+            Scoring Template<input class="mainOption" type="checkbox" id="saScoringTemplate" name="saScoringTemplate" value="Scoring Template" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="saScoringTemplateOptions" />
+            <label class="optionToggle" for="saScoringTemplateOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saScoringTemplateOptionsList" class="options">
+                <label class="option" for="saScoringTemplateDefault"><input id="saScoringTemplateDefault" name="saScoringTemplateDefault" value="Default" type="checkbox" checked /><span class="optionLabel">Default</span></label>
+                <label class="option" for="saScoringTemplateClassic"><input id="saScoringTemplateClassic" name="saScoringTemplateClassic" value="Classic" type="checkbox" checked /><span class="optionLabel">Classic</span></label>
+                <label class="option" for="saScoringTemplatesaSinglesOnly"><input id="saScoringTemplatesaSinglesOnly" name="saScoringTemplatesaSinglesOnly" value="Singles Only" type="checkbox" checked /><span class="optionLabel">Singles Only</span></label>
+                <label class="option" for="saScoringTemplateTetrisOnly"><input id="saScoringTemplateTetrisOnly" name="saScoringTemplateTetrisOnly" value="Tetris Only" type="checkbox" checked /><span class="optionLabel">Tetris Only</span></label>
+            </div>
+        </label>
+        <label class="container" for="saSingles">
+            Singles<input class="mainOption" type="checkbox" id="saSingles" name="saSingles" value="Singles" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="saSinglesOptions" /> <label class="optionToggle" for="saSinglesOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saSinglesOptionsList" class="options">
+                <label class="option" for="saSinglesOptions0"><input id="saSinglesOptions0" name="saSinglesOptions0" value="0%" type="checkbox" checked /><span class="optionLabel">0%</span></label>
+                <label class="option" for="saSinglesOptions25"><input id="saSinglesOptions25" name="saSinglesOptions25" value="25%" type="checkbox" checked /><span class="optionLabel">25%</span></label>
+                <label class="option" for="saSinglesOptions50"><input id="saSinglesOptions50" name="saSinglesOptions50" value="50%" type="checkbox" checked /><span class="optionLabel">50%</span></label>
+                <label class="option" for="saSinglesOptions75"><input id="saSinglesOptions75" name="saSinglesOptions75" value="75%" type="checkbox" checked /><span class="optionLabel">75%</span></label>
+                <label class="option" for="saSinglesOptions100"><input id="saSinglesOptions100" name="saSinglesOptions100" value="100%" type="checkbox" checked /><span class="optionLabel">100%</span></label>
+                <label class="option" for="saSinglesOptions125"><input id="saSinglesOptions125" name="saSinglesOptions125" value="125%" type="checkbox" checked /><span class="optionLabel">125%</span></label>
+                <label class="option" for="saSinglesOptions150"><input id="saSinglesOptions150" name="saSinglesOptions150" value="150%" type="checkbox" checked /><span class="optionLabel">150%</span></label>
+                <label class="option" for="saSinglesOptions200"><input id="saSinglesOptions200" name="saSinglesOptions200" value="200%" type="checkbox" checked /><span class="optionLabel">200%</span></label>
+                <label class="option" for="saSinglesOptions300"><input id="saSinglesOptions300" name="saSinglesOptions300" value="300%" type="checkbox" checked /><span class="optionLabel">300%</span></label>
+                <label class="option" for="saSinglesOptions400"><input id="saSinglesOptions400" name="saSinglesOptions400" value="400%" type="checkbox" checked /><span class="optionLabel">400%</span></label>
+                <label class="option" for="saSinglesOptions500"><input id="saSinglesOptions500" name="saSinglesOptions500" value="500%" type="checkbox" checked /><span class="optionLabel">500%</span></label>
+            </div>
+        </label>
+        <label class="container" for="saDoubles">
+            Doubles<input class="mainOption" type="checkbox" id="saDoubles" name="saDoubles" value="Doubles" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="saDoublesOptions" /> <label class="optionToggle" for="saDoublesOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saDoublesOptionsList" class="options">
+                <label class="option" for="saDoublesOptions0"><input id="saDoublesOptions0" name="saDoublesOptions0" value="0%" type="checkbox" checked /><span class="optionLabel">0%</span></label>
+                <label class="option" for="saDoublesOptions25"><input id="saDoublesOptions25" name="saDoublesOptions25" value="25%" type="checkbox" checked /><span class="optionLabel">25%</span></label>
+                <label class="option" for="saDoublesOptions50"><input id="saDoublesOptions50" name="saDoublesOptions50" value="50%" type="checkbox" checked /><span class="optionLabel">50%</span></label>
+                <label class="option" for="saDoublesOptions75"><input id="saDoublesOptions75" name="saDoublesOptions75" value="75%" type="checkbox" checked /><span class="optionLabel">75%</span></label>
+                <label class="option" for="saDoublesOptions100"><input id="saDoublesOptions100" name="saDoublesOptions100" value="100%" type="checkbox" checked /><span class="optionLabel">100%</span></label>
+                <label class="option" for="saDoublesOptions125"><input id="saDoublesOptions125" name="saDoublesOptions125" value="125%" type="checkbox" checked /><span class="optionLabel">125%</span></label>
+                <label class="option" for="saDoublesOptions150"><input id="saDoublesOptions150" name="saDoublesOptions150" value="150%" type="checkbox" checked /><span class="optionLabel">150%</span></label>
+                <label class="option" for="saDoublesOptions200"><input id="saDoublesOptions200" name="saDoublesOptions200" value="200%" type="checkbox" checked /><span class="optionLabel">200%</span></label>
+                <label class="option" for="saDoublesOptions300"><input id="saDoublesOptions300" name="saDoublesOptions300" value="300%" type="checkbox" checked /><span class="optionLabel">300%</span></label>
+                <label class="option" for="saDoublesOptions400"><input id="saDoublesOptions400" name="saDoublesOptions400" value="400%" type="checkbox" checked /><span class="optionLabel">400%</span></label>
+                <label class="option" for="saDoublesOptions500"><input id="saDoublesOptions500" name="saDoublesOptions500" value="500%" type="checkbox" checked /><span class="optionLabel">500%</span></label>
+            </div>
+        </label>
+        <label class="container" for="saTriples">
+            Triples<input class="mainOption" type="checkbox" id="saTriples" name="saTriples" value="Triples" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="saTriplesOptions" /> <label class="optionToggle" for="saTriplesOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saTriplesOptionsList" class="options">
+                <label class="option" for="saTriplesOptions0"><input id="saTriplesOptions0" name="saTriplesOptions0" value="0%" type="checkbox" checked /><span class="optionLabel">0%</span></label>
+                <label class="option" for="saTriplesOptions25"><input id="saTriplesOptions25" name="saTriplesOptions25" value="25%" type="checkbox" checked /><span class="optionLabel">25%</span></label>
+                <label class="option" for="saTriplesOptions50"><input id="saTriplesOptions50" name="saTriplesOptions50" value="50%" type="checkbox" checked /><span class="optionLabel">50%</span></label>
+                <label class="option" for="saTriplesOptions75"><input id="saTriplesOptions75" name="saTriplesOptions75" value="75%" type="checkbox" checked /><span class="optionLabel">75%</span></label>
+                <label class="option" for="saTriplesOptions100"><input id="saTriplesOptions100" name="saTriplesOptions100" value="100%" type="checkbox" checked /><span class="optionLabel">100%</span></label>
+                <label class="option" for="saTriplesOptions125"><input id="saTriplesOptions125" name="saTriplesOptions125" value="125%" type="checkbox" checked /><span class="optionLabel">125%</span></label>
+                <label class="option" for="saTriplesOptions150"><input id="saTriplesOptions150" name="saTriplesOptions150" value="150%" type="checkbox" checked /><span class="optionLabel">150%</span></label>
+                <label class="option" for="saTriplesOptions200"><input id="saTriplesOptions200" name="saTriplesOptions200" value="200%" type="checkbox" checked /><span class="optionLabel">200%</span></label>
+                <label class="option" for="saTriplesOptions300"><input id="saTriplesOptions300" name="saTriplesOptions300" value="300%" type="checkbox" checked /><span class="optionLabel">300%</span></label>
+                <label class="option" for="saTriplesOptions400"><input id="saTriplesOptions400" name="saTriplesOptions400" value="400%" type="checkbox" checked /><span class="optionLabel">400%</span></label>
+                <label class="option" for="saTriplesOptions500"><input id="saTriplesOptions500" name="saTriplesOptions500" value="500%" type="checkbox" checked /><span class="optionLabel">500%</span></label>
+            </div>
+        </label>
+        <label class="container" for="saTetris">
+            Tetris<input class="mainOption" type="checkbox" id="saTetris" name="saTetris" value="Tetris" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="saTetrisOptions" /> <label class="optionToggle" for="saTetrisOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saTetrisOptionsList" class="options">
+                <label class="option" for="saTetrisOptions0"><input id="saTetrisOptions0" name="saTetrisOptions0" value="0%" type="checkbox" checked /><span class="optionLabel">0%</span></label>
+                <label class="option" for="saTetrisOptions25"><input id="saTetrisOptions25" name="saTetrisOptions25" value="25%" type="checkbox" checked /><span class="optionLabel">25%</span></label>
+                <label class="option" for="saTetrisOptions50"><input id="saTetrisOptions50" name="saTetrisOptions50" value="50%" type="checkbox" checked /><span class="optionLabel">50%</span></label>
+                <label class="option" for="saTetrisOptions75"><input id="saTetrisOptions75" name="saTetrisOptions75" value="75%" type="checkbox" checked /><span class="optionLabel">75%</span></label>
+                <label class="option" for="saTetrisOptions100"><input id="saTetrisOptions100" name="saTetrisOptions100" value="100%" type="checkbox" checked /><span class="optionLabel">100%</span></label>
+                <label class="option" for="saTetrisOptions125"><input id="saTetrisOptions125" name="saTetrisOptions125" value="125%" type="checkbox" checked /><span class="optionLabel">125%</span></label>
+                <label class="option" for="saTetrisOptions150"><input id="saTetrisOptions150" name="saTetrisOptions150" value="150%" type="checkbox" checked /><span class="optionLabel">150%</span></label>
+                <label class="option" for="saTetrisOptions200"><input id="saTetrisOptions200" name="saTetrisOptions200" value="200%" type="checkbox" checked /><span class="optionLabel">200%</span></label>
+                <label class="option" for="saTetrisOptions300"><input id="saTetrisOptions300" name="saTetrisOptions300" value="300%" type="checkbox" checked /><span class="optionLabel">300%</span></label>
+                <label class="option" for="saTetrisOptions400"><input id="saTetrisOptions400" name="saTetrisOptions400" value="400%" type="checkbox" checked /><span class="optionLabel">400%</span></label>
+                <label class="option" for="saTetrisOptions500"><input id="saTetrisOptions500" name="saTetrisOptions500" value="500%" type="checkbox" checked /><span class="optionLabel">500%</span></label>
+            </div>
+        </label>
+        <label class="container" for="saB2b">
+            Back-to-Backs<input class="mainOption" type="checkbox" id="saB2b" name="saB2b" value="Back-to-Backs" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="saB2bOptions" /> <label class="optionToggle" for="saB2bOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saB2bOptionsList" class="options">
+                <label class="option" for="saB2bOptions0"><input id="saB2bOptions0" name="saB2bOptions0" value="0%" type="checkbox" checked /><span class="optionLabel">0%</span></label>
+                <label class="option" for="saB2bOptions25"><input id="saB2bOptions25" name="saB2bOptions25" value="25%" type="checkbox" checked /><span class="optionLabel">25%</span></label>
+                <label class="option" for="saB2bOptions50"><input id="saB2bOptions50" name="saB2bOptions50" value="50%" type="checkbox" checked /><span class="optionLabel">50%</span></label>
+                <label class="option" for="saB2bOptions75"><input id="saB2bOptions75" name="saB2bOptions75" value="75%" type="checkbox" checked /><span class="optionLabel">75%</span></label>
+                <label class="option" for="saB2bOptions100"><input id="saB2bOptions100" name="saB2bOptions100" value="100%" type="checkbox" checked /><span class="optionLabel">100%</span></label>
+                <label class="option" for="saB2bOptions125"><input id="saB2bOptions125" name="saB2bOptions125" value="125%" type="checkbox" checked /><span class="optionLabel">125%</span></label>
+                <label class="option" for="saB2bOptions150"><input id="saB2bOptions150" name="saB2bOptions150" value="150%" type="checkbox" checked /><span class="optionLabel">150%</span></label>
+                <label class="option" for="saB2bOptions200"><input id="saB2bOptions200" name="saB2bOptions200" value="200%" type="checkbox" checked /><span class="optionLabel">200%</span></label>
+                <label class="option" for="saB2bOptions300"><input id="saB2bOptions300" name="saB2bOptions300" value="300%" type="checkbox" checked /><span class="optionLabel">300%</span></label>
+                <label class="option" for="saB2bOptions400"><input id="saB2bOptions400" name="saB2bOptions400" value="400%" type="checkbox" checked /><span class="optionLabel">400%</span></label>
+                <label class="option" for="saB2bOptions500"><input id="saB2bOptions500" name="saB2bOptions500" value="500%" type="checkbox" checked /><span class="optionLabel">500%</span></label>
+            </div>
+        </label>
+        <label class="container" for="saTspins">
+            T-Spins<input class="mainOption" type="checkbox" id="saTspins" name="saTspins" value="T-Spins" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="saTspinsOptions" /> <label class="optionToggle" for="saTspinsOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saTspinsOptionsList" class="options">
+                <label class="option" for="saTspinsOptions0"><input id="saTspinsOptions0" name="saTspinsOptions0" value="0%" type="checkbox" checked /><span class="optionLabel">0%</span></label>
+                <label class="option" for="saTspinsOptions25"><input id="saTspinsOptions25" name="saTspinsOptions25" value="25%" type="checkbox" checked /><span class="optionLabel">25%</span></label>
+                <label class="option" for="saTspinsOptions50"><input id="saTspinsOptions50" name="saTspinsOptions50" value="50%" type="checkbox" checked /><span class="optionLabel">50%</span></label>
+                <label class="option" for="saTspinsOptions75"><input id="saTspinsOptions75" name="saTspinsOptions75" value="75%" type="checkbox" checked /><span class="optionLabel">75%</span></label>
+                <label class="option" for="saTspinsOptions100"><input id="saTspinsOptions100" name="saTspinsOptions100" value="100%" type="checkbox" checked /><span class="optionLabel">100%</span></label>
+                <label class="option" for="saTspinsOptions125"><input id="saTspinsOptions125" name="saTspinsOptions125" value="125%" type="checkbox" checked /><span class="optionLabel">125%</span></label>
+                <label class="option" for="saTspinsOptions150"><input id="saTspinsOptions150" name="saTspinsOptions150" value="150%" type="checkbox" checked /><span class="optionLabel">150%</span></label>
+                <label class="option" for="saTspinsOptions200"><input id="saTspinsOptions200" name="saTspinsOptions200" value="200%" type="checkbox" checked /><span class="optionLabel">200%</span></label>
+                <label class="option" for="saTspinsOptions300"><input id="saTspinsOptions300" name="saTspinsOptions300" value="300%" type="checkbox" checked /><span class="optionLabel">300%</span></label>
+                <label class="option" for="saTspinsOptions400"><input id="saTspinsOptions400" name="saTspinsOptions400" value="400%" type="checkbox" checked /><span class="optionLabel">400%</span></label>
+                <label class="option" for="saTspinsOptions500"><input id="saTspinsOptions500" name="saTspinsOptions500" value="500%" type="checkbox" checked /><span class="optionLabel">500%</span></label>
+            </div>
+        </label>
+        <label class="container" for="saCombos">
+            Combos<input class="mainOption" type="checkbox" id="saCombos" name="saCombos" value="Combos" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="saCombosOptions" /> <label class="optionToggle" for="saCombosOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saCombosOptionsList" class="options">
+                <label class="option" for="saCombosOptions0"><input id="saCombosOptions0" name="saCombosOptions0" value="0%" type="checkbox" checked /><span class="optionLabel">0%</span></label>
+                <label class="option" for="saCombosOptions25"><input id="saCombosOptions25" name="saCombosOptions25" value="25%" type="checkbox" checked /><span class="optionLabel">25%</span></label>
+                <label class="option" for="saCombosOptions50"><input id="saCombosOptions50" name="saCombosOptions50" value="50%" type="checkbox" checked /><span class="optionLabel">50%</span></label>
+                <label class="option" for="saCombosOptions75"><input id="saCombosOptions75" name="saCombosOptions75" value="75%" type="checkbox" checked /><span class="optionLabel">75%</span></label>
+                <label class="option" for="saCombosOptions100"><input id="saCombosOptions100" name="saCombosOptions100" value="100%" type="checkbox" checked /><span class="optionLabel">100%</span></label>
+                <label class="option" for="saCombosOptions125"><input id="saCombosOptions125" name="saCombosOptions125" value="125%" type="checkbox" checked /><span class="optionLabel">125%</span></label>
+                <label class="option" for="saCombosOptions150"><input id="saCombosOptions150" name="saCombosOptions150" value="150%" type="checkbox" checked /><span class="optionLabel">150%</span></label>
+                <label class="option" for="saCombosOptions200"><input id="saCombosOptions200" name="saCombosOptions200" value="200%" type="checkbox" checked /><span class="optionLabel">200%</span></label>
+                <label class="option" for="saCombosOptions300"><input id="saCombosOptions300" name="saCombosOptions300" value="300%" type="checkbox" checked /><span class="optionLabel">300%</span></label>
+                <label class="option" for="saCombosOptions400"><input id="saCombosOptions400" name="saCombosOptions400" value="400%" type="checkbox" checked /><span class="optionLabel">400%</span></label>
+                <label class="option" for="saCombosOptions500"><input id="saCombosOptions500" name="saCombosOptions500" value="500%" type="checkbox" checked /><span class="optionLabel">500%</span></label>
+            </div>
+        </label>
+        <label class="container" for="saAllClears">
+            All Clears<input class="mainOption" type="checkbox" id="saAllClears" name="saAllClears" value="All Clears" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="saAllClearsOptions" /> <label class="optionToggle" for="saAllClearsOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="saAllClearsOptionsList" class="options">
+                <label class="option" for="saAllClearsOptions0"><input id="saAllClearsOptions0" name="saAllClearsOptions0" value="0%" type="checkbox" checked /><span class="optionLabel">0%</span></label>
+                <label class="option" for="saAllClearsOptions25"><input id="saAllClearsOptions25" name="saAllClearsOptions25" value="25%" type="checkbox" checked /><span class="optionLabel">25%</span></label>
+                <label class="option" for="saAllClearsOptions50"><input id="saAllClearsOptions50" name="saAllClearsOptions50" value="50%" type="checkbox" checked /><span class="optionLabel">50%</span></label>
+                <label class="option" for="saAllClearsOptions75"><input id="saAllClearsOptions75" name="saAllClearsOptions75" value="75%" type="checkbox" checked /><span class="optionLabel">75%</span></label>
+                <label class="option" for="saAllClearsOptions100"><input id="saAllClearsOptions100" name="saAllClearsOptions100" value="100%" type="checkbox" checked /><span class="optionLabel">100%</span></label>
+                <label class="option" for="saAllClearsOptions125"><input id="saAllClearsOptions125" name="saAllClearsOptions125" value="125%" type="checkbox" checked /><span class="optionLabel">125%</span></label>
+                <label class="option" for="saAllClearsOptions150"><input id="saAllClearsOptions150" name="saAllClearsOptions150" value="150%" type="checkbox" checked /><span class="optionLabel">150%</span></label>
+                <label class="option" for="saAllClearsOptions200"><input id="saAllClearsOptions200" name="saAllClearsOptions200" value="200%" type="checkbox" checked /><span class="optionLabel">200%</span></label>
+                <label class="option" for="saAllClearsOptions300"><input id="saAllClearsOptions300" name="saAllClearsOptions300" value="300%" type="checkbox" checked /><span class="optionLabel">300%</span></label>
+                <label class="option" for="saAllClearsOptions400"><input id="saAllClearsOptions400" name="saAllClearsOptions400" value="400%" type="checkbox" checked /><span class="optionLabel">400%</span></label>
+                <label class="option" for="saAllClearsOptions500"><input id="saAllClearsOptions500" name="saAllClearsOptions500" value="500%" type="checkbox" checked /><span class="optionLabel">500%</span></label>
+            </div>
+        </label>
+    </div>
+
+    <div class="csa-settings">
+        <label class="container" for="csaWinCount">
+            Win Count<input class="mainOption" type="checkbox" id="csaWinCount" name="csaWinCount" value="Win Count" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="csaWinCountOptions" />
+            <label class="optionToggle" for="csaWinCountOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaWinCountOptionsList" class="options">
+                <label class="option" for="csaWinCountOne"><input id="csaWinCountOne" name="csaWinCountOne" value="1" type="checkbox" checked /><span class="optionLabel">1</span></label>
+                <label class="option" for="csaWinCountTwo"><input id="csaWinCountTwo" name="csaWinCountTwo" value="2" type="checkbox" checked /><span class="optionLabel">2</span></label>
+                <label class="option" for="csaWinCountThree"><input id="csaWinCountThree" name="csaWinCountThree" value="3" type="checkbox" checked /><span class="optionLabel">3</span></label>
+                <label class="option" for="csaWinCountFour"><input id="csaWinCountFour" name="csaWinCountFour" value="4" type="checkbox" checked /><span class="optionLabel">4</span></label>
+                <label class="option" for="csaWinCountFive"><input id="csaWinCountFive" name="csaWinCountFive" value="5" type="checkbox" checked /><span class="optionLabel">5</span></label>
+                <label class="option" for="csaWinCountSix"><input id="csaWinCountSix" name="csaWinCountSix" value="6" type="checkbox" checked /><span class="optionLabel">6</span></label>
+                <label class="option" for="csaWinCountSeven"><input id="csaWinCountSeven" name="csaWinCountSeven" value="7" type="checkbox" checked /><span class="optionLabel">7</span></label>
+                <label class="option" for="csaWinCounteight"><input id="csaWinCounteight" name="csaWinCounteight" value="8" type="checkbox" checked /><span class="optionLabel">8</span></label>
+                <label class="option" for="csaWinCountNine"><input id="csaWinCountNine" name="csaWinCountNine" value="9" type="checkbox" checked /><span class="optionLabel">9</span></label>
+                <label class="option" for="csaWinCountTen"><input id="csaWinCountTen" name="csaWinCountTen" value="10" type="checkbox" checked /><span class="optionLabel">10</span></label>
+                <label class="option" for="csaWinCountFifteen"><input id="csaWinCountFifteen" name="csaWinCountFifteen" value="15" type="checkbox" checked /><span class="optionLabel">15</span></label>
+                <label class="option" for="csaWinCountTwenty"><input id="csaWinCountTwenty" name="csaWinCountTwenty" value="20" type="checkbox" checked /><span class="optionLabel">20</span></label>
+                <label class="option" for="csaWinCountThirty"><input id="csaWinCountThirty" name="csaWinCountThirty" value="30" type="checkbox" checked /><span class="optionLabel">30</span></label>
+                <label class="option" for="csaWinCountFifty"><input id="csaWinCountFifty" name="csaWinCountFifty" value="50" type="checkbox" checked /><span class="optionLabel">50</span></label>
+                <label class="option" for="csaWinCountHundred"><input id="csaWinCountHundred" name="csaWinCountHundred" value="100" type="checkbox" checked /><span class="optionLabel">100</span></label>
+            </div>
+        </label>
+        <label class="container" for="csaRuleTemplate">
+            Rule Template<input class="mainOption" type="checkbox" id="csaRuleTemplate" name="csaRuleTemplate" value="Rule Template" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="csaRuleTemplateOptions" />
+            <label class="optionToggle" for="csaRuleTemplateOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaRuleTemplateOptionsList" class="options">
+                <label class="option" for="csaRuleTemplateStandard"><input id="csaRuleTemplateStandard" name="csaRuleTemplateStandard" value="Standard" type="checkbox" checked /><span class="optionLabel">Standard</span></label>
+                <label class="option" for="csaRuleTemplateMarathon"><input id="csaRuleTemplateMarathon" name="csaRuleTemplateMarathon" value="Marathon" type="checkbox" checked /><span class="optionLabel">Marathon</span></label>
+                <label class="option" for="csaRuleTemplateUltra"><input id="csaRuleTemplateUltra" name="csaRuleTemplateUltra" value="Ultra" type="checkbox" checked /><span class="optionLabel">Ultra</span></label>
+            </div>
+        </label>
+        <label class="container" for="csaBattleType">
+            Battle Type<input class="mainOption" type="checkbox" id="csaBattleType" name="csaBattleType" value="Battle Type" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="csaBattleTypeOptions" />
+            <label class="optionToggle" for="csaBattleTypeOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaBattleTypeOptionsList" class="options">
+                <label class="option" for="csaBattleTypeMarathon"><input id="csaBattleTypeMarathon" name="csaBattleTypeMarathon" value="Marathon" type="checkbox" checked /><span class="optionLabel">Marathon</span></label>
+                <label class="option" for="csaBattleTypeUltra"><input id="csaBattleTypeUltra" name="csaBattleTypeUltra" value="Ultra" type="checkbox" checked /><span class="optionLabel">Ultra</span></label>
+            </div>
+        </label>
+        <label class="container" for="csaLineClearGoal">
+            Line Clear Goal<input class="mainOption" type="checkbox" id="csaLineClearGoal" name="csaLineClearGoal" value="Line Clear Goal" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="csaLineClearGoalOptions" />
+            <label class="optionToggle" for="csaLineClearGoalOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaLineClearGoalOptionsList" class="options">
+                <label class="option" for="csaLineClearGoalNone"><input id="csaLineClearGoalNone" name="csaLineClearGoalNone" value="None" type="checkbox" checked /><span class="optionLabel">None</span></label>
+                <label class="option" for="csaLineClearGoal50"><input id="csaLineClearGoal50" name="csaLineClearGoal50" value="50" type="checkbox" checked /><span class="optionLabel">50</span></label>
+                <label class="option" for="csaLineClearGoal100"><input id="csaLineClearGoal100" name="csaLineClearGoal100" value="100" type="checkbox" checked /><span class="optionLabel">100</span></label>
+                <label class="option" for="csaLineClearGoal150"><input id="csaLineClearGoal150" name="csaLineClearGoal150" value="150" type="checkbox" checked /><span class="optionLabel">150</span></label>
+                <label class="option" for="csaLineClearGoal200"><input id="csaLineClearGoal200" name="csaLineClearGoal200" value="200" type="checkbox" checked /><span class="optionLabel">200</span></label>
+                <label class="option" for="csaLineClearGoal250"><input id="csaLineClearGoal250" name="csaLineClearGoal250" value="250" type="checkbox" checked /><span class="optionLabel">250</span></label>
+                <label class="option" for="csaLineClearGoal300"><input id="csaLineClearGoal300" name="csaLineClearGoal300" value="300" type="checkbox" checked /><span class="optionLabel">300</span></label>
+                <label class="option" for="csaLineClearGoal350"><input id="csaLineClearGoal350" name="csaLineClearGoal350" value="350" type="checkbox" checked /><span class="optionLabel">350</span></label>
+                <label class="option" for="csaLineClearGoal400"><input id="csaLineClearGoal400" name="csaLineClearGoal400" value="400" type="checkbox" checked /><span class="optionLabel">400</span></label>
+                <label class="option" for="csaLineClearGoal450"><input id="csaLineClearGoal450" name="csaLineClearGoal450" value="450" type="checkbox" checked /><span class="optionLabel">450</span></label>
+                <label class="option" for="csaLineClearGoal500"><input id="csaLineClearGoal500" name="csaLineClearGoal500" value="500" type="checkbox" checked /><span class="optionLabel">500</span></label>
+                <label class="option" for="csaLineClearGoal550"><input id="csaLineClearGoal550" name="csaLineClearGoal550" value="550" type="checkbox" checked /><span class="optionLabel">550</span></label>
+                <label class="option" for="csaLineClearGoal600"><input id="csaLineClearGoal600" name="csaLineClearGoal600" value="600" type="checkbox" checked /><span class="optionLabel">600</span></label>
+                <label class="option" for="csaLineClearGoal650"><input id="csaLineClearGoal650" name="csaLineClearGoal650" value="650" type="checkbox" checked /><span class="optionLabel">650</span></label>
+                <label class="option" for="csaLineClearGoal700"><input id="csaLineClearGoal700" name="csaLineClearGoal700" value="700" type="checkbox" checked /><span class="optionLabel">700</span></label>
+                <label class="option" for="csaLineClearGoal750"><input id="csaLineClearGoal750" name="csaLineClearGoal750" value="750" type="checkbox" checked /><span class="optionLabel">750</span></label>
+                <label class="option" for="csaLineClearGoal800"><input id="csaLineClearGoal800" name="csaLineClearGoal800" value="800" type="checkbox" checked /><span class="optionLabel">800</span></label>
+                <label class="option" for="csaLineClearGoal850"><input id="csaLineClearGoal850" name="csaLineClearGoal850" value="850" type="checkbox" checked /><span class="optionLabel">850</span></label>
+                <label class="option" for="csaLineClearGoal900"><input id="csaLineClearGoal900" name="csaLineClearGoal900" value="900" type="checkbox" checked /><span class="optionLabel">900</span></label>
+                <label class="option" for="csaLineClearGoal950"><input id="csaLineClearGoal950" name="csaLineClearGoal950" value="950" type="checkbox" checked /><span class="optionLabel">950</span></label>
+                <label class="option" for="csaLineClearGoal1000"><input id="csaLineClearGoal1000" name="csaLineClearGoal1000" value="1000" type="checkbox" checked /><span class="optionLabel">1000</span></label>
+            </div>
+        </label>
+        <label class="container" for="csaTimeLimit">
+            Time Limit<input class="mainOption" type="checkbox" id="csaTimeLimit" name="csaTimeLimit" value="Time Limit" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="csaTimeLimitOptions" />
+            <label class="optionToggle" for="csaTimeLimitOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaTimeLimitOptionsList" class="options">
+                <label class="option" for="csaTimeLimit030"><input id="csaTimeLimit030" name="csaTimeLimit030" value="0:30" type="checkbox" checked /><span class="optionLabel">0:30</span></label>
+                <label class="option" for="csaTimeLimit100"><input id="csaTimeLimit100" name="csaTimeLimit100" value="1:00" type="checkbox" checked /><span class="optionLabel">1:00</span></label>
+                <label class="option" for="csaTimeLimit130"><input id="csaTimeLimit130" name="csaTimeLimit130" value="1:30" type="checkbox" checked /><span class="optionLabel">1:30</span></label>
+                <label class="option" for="csaTimeLimit200"><input id="csaTimeLimit200" name="csaTimeLimit200" value="2:00" type="checkbox" checked /><span class="optionLabel">2:00</span></label>
+                <label class="option" for="csaTimeLimit300"><input id="csaTimeLimit300" name="csaTimeLimit300" value="3:00" type="checkbox" checked /><span class="optionLabel">3:00</span></label>
+                <label class="option" for="csaTimeLimit500"><input id="csaTimeLimit500" name="csaTimeLimit500" value="5:00" type="checkbox" checked /><span class="optionLabel">5:00</span></label>
+                <label class="option" for="csaTimeLimit1000"><input id="csaTimeLimit1000" name="csaTimeLimit1000" value="10:00" type="checkbox" checked /><span class="optionLabel">10:00</span></label>
+            </div>
+        </label>
+        <label class="container" for="csaConstantSpeedLevel">
+            Constant Speed Level<input class="mainOption" type="checkbox" id="csaConstantSpeedLevel" name="csaConstantSpeedLevel" value="Constant Speed Level" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="csaConstantSpeedLevelOptions" />
+            <label class="optionToggle" for="csaConstantSpeedLevelOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaConstantSpeedLevelOptionsList" class="options">
+                <label class="option" for="csaConstantSpeedLevelOn"><input id="csaConstantSpeedLevelOn" name="csaConstantSpeedLevelOn" value="On" type="checkbox" checked /><span class="optionLabel">On</span></label>
+                <label class="option" for="csaConstantSpeedLevelOff"><input id="csaConstantSpeedLevelOff" name="csaConstantSpeedLevelOff" value="Off" type="checkbox" checked /><span class="optionLabel">Off</span></label>
+            </div>
+        </label>
+        <label class="container" for="csaGameOver">
+            Game Over<input class="mainOption" type="checkbox" id="csaGameOver" name="csaGameOver" value="Game Over" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="csaGameOverOptions" />
+            <label class="optionToggle" for="csaGameOverOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaGameOverOptionsList" class="options">
+                <label class="option" for="csaGameOverOn"><input id="csaGameOverOn" name="csaGameOverOn" value="On" type="checkbox" checked /><span class="optionLabel">On</span></label>
+                <label class="option" for="csaGameOverOff"><input id="csaGameOverOff" name="csaGameOverOff" value="Off" type="checkbox" checked /><span class="optionLabel">Off</span></label>
+            </div>
+        </label>
+        <label class="container" for="csaHurryUp">
+            Hurry Up<input class="mainOption" type="checkbox" id="csaHurryUp" name="csaHurryUp" value="Hurry Up" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="csaHurryUpOptions" />
+            <label class="optionToggle" for="csaHurryUpOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaHurryUpOptionsList" class="options">
+                <label class="option" for="csaHurryUpOn"><input id="csaHurryUpOn" name="csaHurryUpOn" value="On" type="checkbox" checked /><span class="optionLabel">On</span></label>
+                <label class="option" for="csaHurryUpOff"><input id="csaHurryUpOff" name="csaHurryUpOff" value="Off" type="checkbox" checked /><span class="optionLabel">Off</span></label>
+            </div>
+        </label>
+        <label class="container" for="csaGameSpeed">
+            Game Speed<input class="mainOption" type="checkbox" id="csaGameSpeed" name="csaGameSpeed" value="Game Speed" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="csaGameSpeedOptions" />
+            <label class="optionToggle" for="csaGameSpeedOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaGameSpeedOptionsList" class="options">
+                <label class="option" for="csaGameSpeedNtsc"><input id="csaGameSpeedNtsc" name="csaGameSpeedNtsc" value="NTSC" type="checkbox" checked /><span class="optionLabel">NTSC</span></label>
+                <label class="option" for="csaGameSpeedPal"><input id="csaGameSpeedPal" name="csaGameSpeedPal" value="PAL" type="checkbox" checked /><span class="optionLabel">PAL</span></label>
+            </div>
+        </label>
+        <label class="container" for="csaTetriminoRandomizer">
+            Tetrimino Randomizer<input class="mainOption" type="checkbox" id="csaTetriminoRandomizer" name="csaTetriminoRandomizer" value="Tetrimino Randomizer" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="csaTetriminoRandomizerOptions" /> <label class="optionToggle" for="csaTetriminoRandomizerOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaTetriminoRandomizerOptionsList" class="options">
+                <label class="option" for="csaTetriminoRandomizer7Bag"><input id="csaTetriminoRandomizer7Bag" name="csaTetriminoRandomizer7Bag" value="7-Bag" type="checkbox" checked /><span class="optionLabel">7-Bag</span></label>
+                <label class="option" for="csaTetriminoRandomizerLimited"><input id="csaTetriminoRandomizerLimited" name="csaTetriminoRandomizerLimited" value="Limited" type="checkbox" checked /><span class="optionLabel">Limited</span></label>
+                <label class="option" for="csaTetriminoRandomizerCLasic"><input id="csaTetriminoRandomizerCLasic" name="csaTetriminoRandomizerCLasic" value="Classic" type="checkbox" checked /><span class="optionLabel">Classic</span></label>
+            </div>
+        </label>
+        <label class="container" for="csaHorizontalMovement">
+            Horizontal Movement<input class="mainOption" type="checkbox" id="csaHorizontalMovement" name="csaHorizontalMovement" value="Horizontal Movement" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="csaHorizontalMovementOptions" />
+            <label class="optionToggle" for="csaHorizontalMovementOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaHorizontalMovementOptionsList" class="options">
+                <label class="option" for="csaHorizontalMovementSlow"><input id="csaHorizontalMovementSlow" name="csaHorizontalMovementSlow" value="Slow" type="checkbox" checked /><span class="optionLabel">Slow</span></label>
+                <label class="option" for="csaHorizontalMovementNormal"><input id="csaHorizontalMovementNormal" name="csaHorizontalMovementNormal" value="Normal" type="checkbox" checked /><span class="optionLabel">Normal</span></label>
+                <label class="option" for="csaHorizontalMovementFast"><input id="csaHorizontalMovementFast" name="csaHorizontalMovementFast" value="Fast" type="checkbox" checked /><span class="optionLabel">Fast</span></label>
+                <label class="option" for="csaHorizontalMovementVeryFast"><input id="csaHorizontalMovementVeryFast" name="csaHorizontalMovementVeryFast" value="Very Fast" type="checkbox" checked /><span class="optionLabel">Very Fast</span></label>
+            </div>
+        </label>
+        <label class="container" for="csaScoringTemplate">
+            Scoring Template<input class="mainOption" type="checkbox" id="csaScoringTemplate" name="csaScoringTemplate" value="Scoring Template" /><span class="checkmark"></span> <input class="optionToggle" type="checkbox" id="csaScoringTemplateOptions" />
+            <label class="optionToggle" for="csaScoringTemplateOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaScoringTemplateOptionsList" class="options">
+                <label class="option" for="csaScoringTemplateDefault"><input id="csaScoringTemplateDefault" name="csaScoringTemplateDefault" value="Default" type="checkbox" checked /><span class="optionLabel">Default</span></label>
+                <label class="option" for="csaScoringTemplateModern"><input id="csaScoringTemplateModern" name="csaScoringTemplateModern" value="Modern" type="checkbox" checked /><span class="optionLabel">Modern</span></label>
+                <label class="option" for="csaScoringTemplatecsaSinglesOnly"><input id="csaScoringTemplatecsaSinglesOnly" name="csaScoringTemplatecsaSinglesOnly" value="Singles Only" type="checkbox" checked /><span class="optionLabel">Singles Only</span></label>
+                <label class="option" for="csaScoringTemplateTetrisOnly"><input id="csaScoringTemplateTetrisOnly" name="csaScoringTemplateTetrisOnly" value="Tetris Only" type="checkbox" checked /><span class="optionLabel">Tetris Only</span></label>
+            </div>
+        </label>
+        <label class="container" for="csaSingles">
+            Singles<input class="mainOption" type="checkbox" id="csaSingles" name="csaSingles" value="Singles" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="csaSinglesOptions" /> <label class="optionToggle" for="csaSinglesOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaSinglesOptionsList" class="options">
+                <label class="option" for="csaSinglesOptions0"><input id="csaSinglesOptions0" name="csaSinglesOptions0" value="0%" type="checkbox" checked /><span class="optionLabel">0%</span></label>
+                <label class="option" for="csaSinglesOptions25"><input id="csaSinglesOptions25" name="csaSinglesOptions25" value="25%" type="checkbox" checked /><span class="optionLabel">25%</span></label>
+                <label class="option" for="csaSinglesOptions50"><input id="csaSinglesOptions50" name="csaSinglesOptions50" value="50%" type="checkbox" checked /><span class="optionLabel">50%</span></label>
+                <label class="option" for="csaSinglesOptions75"><input id="csaSinglesOptions75" name="csaSinglesOptions75" value="75%" type="checkbox" checked /><span class="optionLabel">75%</span></label>
+                <label class="option" for="csaSinglesOptions100"><input id="csaSinglesOptions100" name="csaSinglesOptions100" value="100%" type="checkbox" checked /><span class="optionLabel">100%</span></label>
+                <label class="option" for="csaSinglesOptions125"><input id="csaSinglesOptions125" name="csaSinglesOptions125" value="125%" type="checkbox" checked /><span class="optionLabel">125%</span></label>
+                <label class="option" for="csaSinglesOptions150"><input id="csaSinglesOptions150" name="csaSinglesOptions150" value="150%" type="checkbox" checked /><span class="optionLabel">150%</span></label>
+                <label class="option" for="csaSinglesOptions200"><input id="csaSinglesOptions200" name="csaSinglesOptions200" value="200%" type="checkbox" checked /><span class="optionLabel">200%</span></label>
+                <label class="option" for="csaSinglesOptions300"><input id="csaSinglesOptions300" name="csaSinglesOptions300" value="300%" type="checkbox" checked /><span class="optionLabel">300%</span></label>
+                <label class="option" for="csaSinglesOptions400"><input id="csaSinglesOptions400" name="csaSinglesOptions400" value="400%" type="checkbox" checked /><span class="optionLabel">400%</span></label>
+                <label class="option" for="csaSinglesOptions500"><input id="csaSinglesOptions500" name="csaSinglesOptions500" value="500%" type="checkbox" checked /><span class="optionLabel">500%</span></label>
+            </div>
+        </label>
+        <label class="container" for="csaDoubles">
+            Doubles<input class="mainOption" type="checkbox" id="csaDoubles" name="csaDoubles" value="Doubles" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="csaDoublesOptions" /> <label class="optionToggle" for="csaDoublesOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaDoublesOptionsList" class="options">
+                <label class="option" for="csaDoublesOptions0"><input id="csaDoublesOptions0" name="csaDoublesOptions0" value="0%" type="checkbox" checked /><span class="optionLabel">0%</span></label>
+                <label class="option" for="csaDoublesOptions25"><input id="csaDoublesOptions25" name="csaDoublesOptions25" value="25%" type="checkbox" checked /><span class="optionLabel">25%</span></label>
+                <label class="option" for="csaDoublesOptions50"><input id="csaDoublesOptions50" name="csaDoublesOptions50" value="50%" type="checkbox" checked /><span class="optionLabel">50%</span></label>
+                <label class="option" for="csaDoublesOptions75"><input id="csaDoublesOptions75" name="csaDoublesOptions75" value="75%" type="checkbox" checked /><span class="optionLabel">75%</span></label>
+                <label class="option" for="csaDoublesOptions100"><input id="csaDoublesOptions100" name="csaDoublesOptions100" value="100%" type="checkbox" checked /><span class="optionLabel">100%</span></label>
+                <label class="option" for="csaDoublesOptions125"><input id="csaDoublesOptions125" name="csaDoublesOptions125" value="125%" type="checkbox" checked /><span class="optionLabel">125%</span></label>
+                <label class="option" for="csaDoublesOptions150"><input id="csaDoublesOptions150" name="csaDoublesOptions150" value="150%" type="checkbox" checked /><span class="optionLabel">150%</span></label>
+                <label class="option" for="csaDoublesOptions200"><input id="csaDoublesOptions200" name="csaDoublesOptions200" value="200%" type="checkbox" checked /><span class="optionLabel">200%</span></label>
+                <label class="option" for="csaDoublesOptions300"><input id="csaDoublesOptions300" name="csaDoublesOptions300" value="300%" type="checkbox" checked /><span class="optionLabel">300%</span></label>
+                <label class="option" for="csaDoublesOptions400"><input id="csaDoublesOptions400" name="csaDoublesOptions400" value="400%" type="checkbox" checked /><span class="optionLabel">400%</span></label>
+                <label class="option" for="csaDoublesOptions500"><input id="csaDoublesOptions500" name="csaDoublesOptions500" value="500%" type="checkbox" checked /><span class="optionLabel">500%</span></label>
+            </div>
+        </label>
+        <label class="container" for="csaTriples">
+            Triples<input class="mainOption" type="checkbox" id="csaTriples" name="csaTriples" value="Triples" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="csaTriplesOptions" /> <label class="optionToggle" for="csaTriplesOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaTriplesOptionsList" class="options">
+                <label class="option" for="csaTriplesOptions0"><input id="csaTriplesOptions0" name="csaTriplesOptions0" value="0%" type="checkbox" checked /><span class="optionLabel">0%</span></label>
+                <label class="option" for="csaTriplesOptions25"><input id="csaTriplesOptions25" name="csaTriplesOptions25" value="25%" type="checkbox" checked /><span class="optionLabel">25%</span></label>
+                <label class="option" for="csaTriplesOptions50"><input id="csaTriplesOptions50" name="csaTriplesOptions50" value="50%" type="checkbox" checked /><span class="optionLabel">50%</span></label>
+                <label class="option" for="csaTriplesOptions75"><input id="csaTriplesOptions75" name="csaTriplesOptions75" value="75%" type="checkbox" checked /><span class="optionLabel">75%</span></label>
+                <label class="option" for="csaTriplesOptions100"><input id="csaTriplesOptions100" name="csaTriplesOptions100" value="100%" type="checkbox" checked /><span class="optionLabel">100%</span></label>
+                <label class="option" for="csaTriplesOptions125"><input id="csaTriplesOptions125" name="csaTriplesOptions125" value="125%" type="checkbox" checked /><span class="optionLabel">125%</span></label>
+                <label class="option" for="csaTriplesOptions150"><input id="csaTriplesOptions150" name="csaTriplesOptions150" value="150%" type="checkbox" checked /><span class="optionLabel">150%</span></label>
+                <label class="option" for="csaTriplesOptions200"><input id="csaTriplesOptions200" name="csaTriplesOptions200" value="200%" type="checkbox" checked /><span class="optionLabel">200%</span></label>
+                <label class="option" for="csaTriplesOptions300"><input id="csaTriplesOptions300" name="csaTriplesOptions300" value="300%" type="checkbox" checked /><span class="optionLabel">300%</span></label>
+                <label class="option" for="csaTriplesOptions400"><input id="csaTriplesOptions400" name="csaTriplesOptions400" value="400%" type="checkbox" checked /><span class="optionLabel">400%</span></label>
+                <label class="option" for="csaTriplesOptions500"><input id="csaTriplesOptions500" name="csaTriplesOptions500" value="500%" type="checkbox" checked /><span class="optionLabel">500%</span></label>
+            </div>
+        </label>
+        <label class="container" for="csaTetris">
+            Tetris<input class="mainOption" type="checkbox" id="csaTetris" name="csaTetris" value="Tetris" /><span class="checkmark"></span>
+            <input class="optionToggle" type="checkbox" id="csaTetrisOptions" /> <label class="optionToggle" for="csaTetrisOptions"><span class="toggleLabel">⋯</span></label>
+            <div id="csaTetrisOptionsList" class="options">
+                <label class="option" for="csaTetrisOptions0"><input id="csaTetrisOptions0" name="csaTetrisOptions0" value="0%" type="checkbox" checked /><span class="optionLabel">0%</span></label>
+                <label class="option" for="csaTetrisOptions25"><input id="csaTetrisOptions25" name="csaTetrisOptions25" value="25%" type="checkbox" checked /><span class="optionLabel">25%</span></label>
+                <label class="option" for="csaTetrisOptions50"><input id="csaTetrisOptions50" name="csaTetrisOptions50" value="50%" type="checkbox" checked /><span class="optionLabel">50%</span></label>
+                <label class="option" for="csaTetrisOptions75"><input id="csaTetrisOptions75" name="csaTetrisOptions75" value="75%" type="checkbox" checked /><span class="optionLabel">75%</span></label>
+                <label class="option" for="csaTetrisOptions100"><input id="csaTetrisOptions100" name="csaTetrisOptions100" value="100%" type="checkbox" checked /><span class="optionLabel">100%</span></label>
+                <label class="option" for="csaTetrisOptions125"><input id="csaTetrisOptions125" name="csaTetrisOptions125" value="125%" type="checkbox" checked /><span class="optionLabel">125%</span></label>
+                <label class="option" for="csaTetrisOptions150"><input id="csaTetrisOptions150" name="csaTetrisOptions150" value="150%" type="checkbox" checked /><span class="optionLabel">150%</span></label>
+                <label class="option" for="csaTetrisOptions200"><input id="csaTetrisOptions200" name="csaTetrisOptions200" value="200%" type="checkbox" checked /><span class="optionLabel">200%</span></label>
+                <label class="option" for="csaTetrisOptions300"><input id="csaTetrisOptions300" name="csaTetrisOptions300" value="300%" type="checkbox" checked /><span class="optionLabel">300%</span></label>
+                <label class="option" for="csaTetrisOptions400"><input id="csaTetrisOptions400" name="csaTetrisOptions400" value="400%" type="checkbox" checked /><span class="optionLabel">400%</span></label>
+                <label class="option" for="csaTetrisOptions500"><input id="csaTetrisOptions500" name="csaTetrisOptions500" value="500%" type="checkbox" checked /><span class="optionLabel">500%</span></label>
+            </div>
+        </label>
+    </div>
+
+    <button id="roll">Roll 'em!</button>
+    <button id="surprise">Suprise me!</button>
+</div>
+
+<div id="results"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    var x = 0;
+    var shuffleInterval;
+    var activeShuffling = false;
+
+    var zbSelect = document.querySelector(".zb");
+    var saSelect = document.querySelector(".sa");
+    var csaSelect = document.querySelector(".csa");
+
+    var zbList = document.querySelector(".zb-settings");
+    var saList = document.querySelector(".sa-settings");
+    var csaList = document.querySelector(".csa-settings");
+
+    var allInputs = document.querySelectorAll("input.mainOption[type=checkbox]")
+    allInputs.forEach(function(input, index) {
+        input.checked = false;
+    });
+    
+    var optionToggles = document.querySelectorAll("input.optionToggle[type=checkbox]")
+    optionToggles.forEach(function(input, index) {
+        input.checked = false;
+    });
+
+    var optionVals = document.querySelectorAll("label.option input[type=checkbox]")
+    optionVals.forEach(function(input, index) {
+        input.checked = true;
+    });
+
+    zbSelect.addEventListener("click", function() {
+        zbList.classList = "zb-settings active";
+        saList.classList = "sa-settings";
+        csaList.classList = "csa-settings";
+
+        zbSelect.classList = "zb";
+        saSelect.classList = "sa greyed";
+        csaSelect.classList = "csa greyed";
+    })
+
+    saSelect.addEventListener("click", function() {
+        zbList.classList = "zb-settings";
+        saList.classList = "sa-settings active";
+        csaList.classList = "csa-settings";
+
+        zbSelect.classList = "zb greyed";
+        saSelect.classList = "sa";
+        csaSelect.classList = "csa greyed";
+    })
+
+    csaSelect.addEventListener("click", function() {
+        zbList.classList = "zb-settings";
+        saList.classList = "sa-settings";
+        csaList.classList = "csa-settings active";
+
+        zbSelect.classList = "zb greyed";
+        saSelect.classList = "sa greyed";
+        csaSelect.classList = "csa";
+    })
+    
+    function shuffle() {
+        activeShuffling = true;
+        var results = document.querySelector("#results");
+        results.innerHTML = "";
+
+        var inputs = document.querySelectorAll(".active input.mainOption[type=checkbox]");
+        if(inputs.length == 0) {
+            clearInterval(shuffleInterval);
+            x = 0;
+        }
+    
+        inputs.forEach(function(input, index) {
+            if(input.checked) {
+                var listId = "#" + input.name + "OptionsList";
+                var list = document.querySelectorAll(listId + " input:checked");
+                var listLength = list.length;
+                var randChildIndex = Math.floor(Math.random() * listLength);
+                var randomChild = (list[randChildIndex]);
+
+                
+                var title = document.createElement("div");
+                title.classList = "title"
+                title.innerHTML = input.value + ": "
+                
+                var titleValue = document.createElement("div");
+                titleValue.classList = "titleValue"
+                titleValue.innerHTML = randomChild.value;
+                
+                var settingContainer = document.createElement("div");
+                settingContainer.classList = "settingResult"
+                settingContainer.append(title);
+                settingContainer.append(titleValue);
+                results.append(settingContainer);
+            }
+        });
+        x++
+        if (x >= 50) {
+            clearInterval(shuffleInterval);
+            activeShuffling = false;
+            x = 0;
+        }
+    }
+
+    document.querySelector("#roll").addEventListener("click", function() {
+        var checkedInputs = document.querySelectorAll(".active input.mainOption[type=checkbox]:checked")
+        if (checkedInputs.length > 0 && !activeShuffling) shuffleInterval = setInterval(shuffle, 50);
+    });
+    
+    
+    document.querySelector("#surprise").addEventListener("click", function() {
+        if (!activeShuffling) {
+            var possibleInputs = document.querySelectorAll(".active input.mainOption[type=checkbox]")
+            possibleInputs.forEach(function(input, index) {
+                toggleRand = Math.random();
+                if (toggleRand >= 0.5) input.checked = true;
+                else input.checked = false;
+            });
+            
+            var checkedInputs = document.querySelectorAll(".active input.mainOption[type=checkbox]:checked")
+            if (checkedInputs.length > 0) shuffleInterval = setInterval(shuffle, 50);
+        }
+    });
+})
+</script>
+</body>
+</html>
