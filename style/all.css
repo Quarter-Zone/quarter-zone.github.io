@@ -24,23 +24,6 @@ body[data-theme="light"] {
     color: #333;
 }
 
-.announcement {
-    position: absolute;
-    top: 0;
-    z-index: 5;
-    min-height: 50px;
-    width: 100%;
-    line-height: 50px;
-    text-align: center;
-    background: rgb(242, 73, 78);
-    font-weight: bold;
-    color: #fff;
-}
-
-.announcement::after {
-    content: " ❯";
-}
-
 .logo {
     background: url(/img/logo/quarter_zone.png) no-repeat center center;
     background-size: contain;
@@ -948,13 +931,20 @@ ul.menu li.header {
     box-sizing: border-box;
 }
 
-.notice.excluded {
+.notice.excluded, .notice.announcement {
     margin-top: 10px;
     background: rgb(242, 73, 78);
     text-transform: uppercase;
     line-height: 32px;
     padding: 10px;
     font-weight: bold;
+}
+
+.notice.announcement {
+    text-transform: initial;
+}
+.notice.announcement::after {
+    content: " ❯";
 }
 
 body[data-theme="light"] .notice {

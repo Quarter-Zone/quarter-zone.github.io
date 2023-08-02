@@ -13,45 +13,1591 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/js/lib/plotly-min.js"></script>
 </head>
+
 <body>
 <div class="main">
-
-<div class="shutdown-section">
-    <div id="about" class="section-header shutdown">End of Service for Quarter Zone</div>
-
-    <p>Quarter Zone is preparing to wind down over the coming weeks. Our key dates on this timeline are expected to be:
-
-    <ul class="roadmap">
-    <li><b>2023-07-31</b>: Cross-platform multiplayer leaderboards will stop being scraped and the Discord bot will be discontinued.</li>
-    <li><u><b>2023-08-01: The site is being transitioned to a static GitHub Pages repository. You should see everything here soon!</b></u></li>
-    <li><b>2023-08-31</b>: All site data will be effectively frozen at this time. A final audit and update of records will be performed, including the Hall of Fame.</li>
-    <li><b>2023-11-11</b>: quarter.zone will stop resolving after this domain's registration expires. The GitHub Pages domain will be the only entry point to the site.</li>
+<div class="nav">
+    <a href="/"><div class="logo"></div></a>
+    <div class="themeToggleCont">
+        <input class="switch" type="checkbox" id="themeToggle">
+        <label for="themeToggle">Lights on</label>
+    </div>
+    <ul class="menu">
+        <a href="/about"><li class="header about">About</li></a>
+        <a href="/changelog"><li class="header changelog">Changelog</li></a>
+        <a href="/utilities"><li class="header utilities">Utilities</li></a>
+        <a href="/events"><li class="header events">Events</li></a>
+        <a href="/#hall_of_fame"><li class="header hof">Hall of Fame</li></a>
+        <a href="#"><li class="header connected">Connected</li></a>
+        <a href="/mp_stats"><li>Stats</li></a>
+        <a href="/overall"><li>Overall</li></a>
+        <a href="/cvs"><li>Connected Vs</li></a>
+        <a href="/zb"><li>Zone Battle</li></a>
+        <a href="/sa"><li>Score Attack</li></a>
+        <a href="/csa"><li>Classic Score Attack</li></a>
+        <a href="/#sa_score"><li>Score Attack (Score)</li></a>
+        <a href="/#sa_level"><li>Score Attack (Level)</li></a>
+        <a href="/#csa_score"><li>Classic Score Attack (Score)</li></a>
+        <a href="/#csa_level"><li>Classic Score Attack (Level)</li></a>
     </ul>
+</div>
 
-    <h2>Why are you shutting down?</h2>
+<div class="tables">
+    <div class="notice announcement">As of 2023-08-01, Quarter Zone is now in a static state. <a href="/shutdown">See our notice for more information.</a></div>
 
-    <p>The answer to this is threefold:</p>
-    <ol class="roadmap">
-        <li>My own personal interest in Tetris Effect has waned to a point that I no longer have a serious drive to continue maintaining the site. Each daily scrape of leaderboard data, while not outrageous, still demands a non-negligible amount of money to retrieve and store that would probably be better redirected to another passion project.</li>
-        <li>Player activity appears to have reached a peak that is now waning. While I look forward to seeing what strides the community might make with future competitive events, my feeling is that this site failed to become an authority for competitive data that I hoped to develop it as with efforts like an ELO ranking system. Difficulties collecting single player leaderboard data also challenged this initial vision for the site.</li>
-        <li>The competitive integrity of the game's online multiplayer is compromised in ways that are unlikely to be resolved at this point in the game's development, including rampant disconnects and players artificially boosting their mode SRs. As I've become more aware of situations involving specific players, I've developed a distaste for the reactive rather than proactive attempts at moderating this behavior that has relied on the good-will of players investigating and coming forward in the community.</li>
-    </ol>
+    <div id="hall_of_fame" class="section-header hof">Hall of Fame</div>
+    <div class="notice"><i>Last updated: 2022-11-19</i></div>
 
-    <h2>Will you be sharing Quarter Zone's data or tools?</h2>
-    <p>Raw data like our multiplayer and single player leaderboard data, player name history, player countries, and event match data I expect to have available for download some time before the site's domain ultimately expires. None of the tools used for scraping or ingesting data from leaderboards will be made available, nor any of the tools used to generate pages for the site.</p>
+    <div id="zone_clear" class="table_wrap">
+    <table>
+        <colgroup>
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 20%;">
+           <col span="1" style="width: 10%;">
+           <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Zone Line Clears (23 + 22, Excluding Connected)</caption>
+        
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Best Zone Lines</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
 
-    <h2>Can someone else take up this effort?</h2>
-    <p>Maybe, if I think you'd be a good steward for it! But probably not. The general flow of turning data into pages we use is a little bespoke, plus the aggregated database and ingestion tools I developed represent a serious body of effort that I probably wouldn't part with without some amount of compensation. I'm chosing to release the raw data that I've collected as a compromise to that position.</p>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198230243668/">Kirby703</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2021-02-15</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://twitter.com/Kirby703_/status/1361484825144799237"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/18c7ffdcd5254542b14ca1d7abe8a0a6/">Electra</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2021-08-29</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=FL-mv4JxJ-Q"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/nintendo/8d1854d4cdfff3e3/">じすぷろ</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2021-11-08</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://twitter.com/Xe_4f10_6s2/status/1457723945092730887"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/psn/8175401621022979894/">BowserJrX</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2021-12-22</td>
+            <td class="center"><span class="platform psn"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/923264541335359518/lol.mov"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="#">Olivier Moreau</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2021-12-26</td>
+            <td class="center"><span class="platform psn"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=5v1NCamAbyk"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/bb7d16913e7a427ca4d46c8ec1832ce9/">Lexitik</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2021-01-02</td>
+            <td class="center"><span class="platform epic"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/927376000394874960/927752382656442408/IMG_7375.mov"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country HKG" title="HKG"></span><span class="left"><a href="/users/steam/76561198194481487/">Ivan247</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2022-01-09</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/813558875260583957/929719449370636389/Inf08_short.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198827575995/">T-Flat</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2022-02-14</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://clips.twitch.tv/TsundereOddDuckMingLee-Lo8HM8W7w6eGucsa"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/nintendo/3bad13f12e677190/">かに</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2022-03-13</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://clips.twitch.tv/TsundereOddDuckMingLee-Lo8HM8W7w6eGucsa"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/nintendo/9a72d19ce19d33f5/">あらき</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2022-03-14</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://twitter.com/arakikouki0505/status/1503299508871917570"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/steam/76561198895430308/">Bigwee125</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2022-04-24</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/967653224930742342/2022042413573500-9E6A5948F727B745C7EE32B5243A9155.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198273395160/">Yoshimi</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2022-04-24</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://clips.twitch.tv/InquisitiveImportantCardMikeHogu-dVJPYHacN0KwLy_1"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/nintendo/a0490a6313a268a0/">Supershock</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2022-05-28</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=Fdy-I7-14Jo"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/psn/231349843503793881/">Im-sorry1_xyz</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2022-07-19</td>
+            <td class="center"><span class="platform psn"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=5coJ0GKP2Bg"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="">Clemønt213</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2022-08-21</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/1010823755796336761/2022082114092300-9E6A5948F727B745C7EE32B5243A9155.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country KOR" title="KOR"></span><span class="left"><a href="">cdwcgt</a></span></td>
+            <td class="right">23</td>
+            <td class="right">2022-08-22</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://www.bilibili.com/video/BV1pt4y1w7vo"><span class="globe"></span></span></td>
+        </tr>
 
-    <h2>I have questions still!</h2>
-    <p>You can email me at <b>webmaster AT quarter DOT zone</b> or find me on whatever Discord server you happen to be a mutual with me on. </p>
+        <tr class="expand">
+            <td colspan="6" class="center"><span class="rotate">〉</span></td>
+        </tr>
+        
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">kanokoaaaaa</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2019-05-11</td>
+            <td class="center"><span class="platform psn"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/813558875260583957/813576212584202240/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/be5a76beccc2449a9f38412d9be2f0d8/">KibiByte</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2019-08-03</td>
+            <td class="center"><span class="platform epic"></span></td>
+            <td class="center"><a href="https://youtu.be/5ElDGDz6bWg"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country CAN" title="CAN"></span><span class="left"><a href="/users/epic/d1c2a6e92235444bbb7ea55655414593/">Lily</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2020-03-20</td>
+            <td class="center"><span class="platform epic"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/606194690630483988/690643890788630528/Awt0yqmSLV1uAAAAAElFTkSuQmCC.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">Avenged Forever</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2020-06-13</td>
+            <td class="center"><span class="platform psn"></span></td>
+            <td class="center"><a href="https://youtu.be/o-_UTJD3Xd8"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country GBR" title="GBR"></span><span class="left"><a href="/users/steam/76561198304888732/">Oshisaure</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2020-12-04</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://youtu.be/kGZbd55Uo2Y"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/965F7850A2580E6D861BFDD8D84BEE8AD8D8A4F1/">nick666101</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2020-12-10</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=8MKBFWRJHls"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/steam/76561198058932340/">OtherElement</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-01-07</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/609056825006096390/796833646380056606/unknown.png?width=1247&height=702"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/2a4eebf8e54c4e219f8733b9fd0c3096/">Super302</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-02-10</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://youtu.be/vQvnyNu5tXs"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/nintendo/d1a84a32f4fecab0/">Wabice</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-02-26</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://youtu.be/bQO94IfwNwA"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/11566e8d8a434b8d882fac21dd058808/">Taco</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-03-03</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/606194690630483988/816887731119849502/Screenshot_145.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561199154144678/">Ferox</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-03-09</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://clips.twitch.tv/ThankfulRealYakinikuChocolateRain-zwDsdmFhlbiviStK"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/86283678C74C1F9669A7716CE262187F6AB39F6D/">Magistrate</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-03-10</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/804309749168078858/819299429190205460/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">Princess Momo</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-03-10</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/813558875260583957/819324546716925992/Screen_Shot_2021-03-10_at_1.42.41_PM.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198074682459/">niner</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-04-09</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=IbFAT_Ztnss"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198047879886/">alltrades</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-04-14</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://imgur.com/a/vWJQT3y"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/8121e22798b145a482c209736c5bfe07/">Commando</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-04-18</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://clips.twitch.tv/ExquisiteComfortableSalmonDuDudu-OdRH4CGCaoGk8nNo"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/23a790faa6f04c6989c1e906adf4f557/">Adventium_</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-04-25</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://clips.twitch.tv/HardWimpyGullSwiftRage-Am3GSIwwZA2cW4_f"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">Macthemoonman</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-05-01</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/606194690630483988/838213561259130942/20210501_204121.jpg"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/13220f2b5f824395989658d891f38e5c/">sschr15</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-05-12</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/736290375009960036/842223385425870848/Win_20210512_21_05_06_Pro-1.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/4bff05ef04ba4ceb9b7e159ed1a0f126/">Dimmadomus</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-05-24</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/736290375009960036/846792626886803486/imposs.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198061851334/">BeastinShen</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-05-26</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/736290375009960036/847187542969155614/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/defd744405764231afa7c44bf365bce5/">RMGBread</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-06-30</td>
+            <td class="center"><span class="platform epic"></span></td>
+            <td class="center"><a href="https://youtu.be/xT6h21JbFCo"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/steam/76561198332915888/">Akari</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-09-05</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=kKulyDRB-Qs"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">Crow216</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-09-09</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://youtu.be/0L1jDFxBNiU"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">fedros7</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-09-19</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/813558875260583957/889154728041283624/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198410636290/">GlowBricker</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-09-19</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/813558875260583957/889154668285026364/unknown.png?width=1423&height=701"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">Kirucchi</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-09-26</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/813558875260583957/891725644327694406/unknown.png?width=1247&height=702"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/xbl/69C9C2644C6957A2E5EE27DB4853F70BFF7DB4DA/">Thedavotigger</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-10-04</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://clips.twitch.tv/SilkyPeacefulHawkYouWHY-tn19EhSB7nGIs8O4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/A493BC3D584719542776D4E7A9E812DA31C20AC3/">LucasRG9809</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-10-09</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/736290375009960036/896518904501915689/09-10-2021_18-54-59-2wxtxall.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country KOR" title="KOR"></span><span class="left"><a href="/users/steam/76561198302880279/">SSENRED</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-10-12</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=NHsxHx_66vI"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/3648877206280622992/">Toasty1019</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-10-16</td>
+            <td class="center"><span class="platform psn"></span></td>
+            <td class="center"><a href="https://twitter.com/i/status/1449149403978211329"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/psn/7870878814562556995/">ItsPdanyUltimate</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-10-27</td>
+            <td class="center"><span class="platform psn"></span></td>
+            <td class="center"><a href="https://twitter.com/ItsPdany_Tet/status/1453531146948542465"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">Arakikouki</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-11-02</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/813558875260583957/905181604736020500/20211102_204820.jpg"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country NLD" title="NLD"></span><span class="left"><a href="/users/nintendo/db855b65b4598e2e/">Kelvin</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-11-08</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/736290375009960036/907332263748960376/2021110819063600-9E6A5948F727B745C7EE32B5243A9155_1.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country FRA" title="FRA"></span><span class="left"><a href="#">Light</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-11-14</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://twitter.com/Hikari_Ossan/status/1460015422514688003?t=PE156ihRAQX8TDRNCS2S-A&s=19"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/steam/76561199053739034/">uyeshota</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-11-16</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://twitter.com/i/status/1460599228481241096"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/3ff0bec9f9d02216/">laphi</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-11-19</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/878615123613323304/911456022453944330/image0.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">Daimh</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-11-21</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/813558875260583957/912399760114208858/2021-11-22_10-49-13.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country FRA" title="FRA"></span><span class="left"><a href="/users/steam/76561198086995560/">Doremy</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-11-23</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/813558875260583957/912721348793622578/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">MelloBoo44</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-11-30</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/606186544469901342/915449810058883122/lv_0_20211130214811.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/nintendo/0e553f21d621596c/">あかしろぼう</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-11-30</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/606186544469901342/915451508580036638/20211130_215725.jpg"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/psn/5534749810756830330/">Likka_Nv</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-12-03</td>
+            <td class="center"><span class="platform psn"></span></td>
+            <td class="center"><a href="https://youtu.be/rgpETwQ2GSM?t=8506"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/3831382933648590/">N1ght_Hunter</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2021-12-17</td>
+            <td class="center"><span class="platform oculus"></span></td>
+            <td class="center"><a href="https://youtu.be/dX8r6JmTes8"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/xbl/3D640DEBC57D7990CC1E948845BB6C00448556DA/">andrew4043</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-01-01</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://clips.twitch.tv/DiligentSavoryPineappleBlargNaut-emK8FIhe3xU_vmQj"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/3542761750666352368/">kuroguro2000</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-01-02</td>
+            <td class="center"><span class="platform psn"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/813558875260583957/927445611677093888/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/8dfa50e1b8fa486a8c86bbdf3f4e2a42/">smolbepis</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-01-06</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/606194690630483988/928860037873541122/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country KOR" title="KOR"></span><span class="left"><a href="/users/steam/76561198161493891/">Fucidin</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-01-17</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/813558875260583957/932783204396593182/unknown.png?width=1846&height=1038"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198287539179/">Bubbles</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-01-19</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/813558875260583957/933551291681091624/Replay_2022.01.19-20.12_Trim1.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/231349843503793881/">Im-sorry1_xyz</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-01-27</td>
+            <td class="center"><span class="platform psn"></span></td>
+            <td class="center"><a href="https://youtu.be/dgBhkUB4Weg"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country GBR" title="GBR"></span><span class="left"><a href="/users/nintendo/0882c1f1bd6e0842/">Skinda</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-01-29</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://twitter.com/SkindaOnT99/status/1487931937586966529?t=QPcMCqASoz9K1MpKFe4s3A&s=19"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/1119a6bbad0f4a9682c1b60d9bed1003/">Dmillion</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-02-09</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/813558875260583957/941057050908172298/22_zone.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/44a156973b7a43058d18ca9d09161603/">zer0x64</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-02-22</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=P5vSbqQh6t8"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/nintendo/4851cf9b78091eb3/">box</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-03-07</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/813558875260583957/950312843851472896/275281401_388289782628128_8419477266925781654_n_1.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="#">Tigerclone</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-03-08</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=_ADzFQRDdIw"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country AUS" title="AUS"></span><span class="left"><a href="/users/epic/2e90f4e46ed74c3c86e68a54ab510787/">elso</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-03-18</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://clips.twitch.tv/GenerousPoisedMooseFreakinStinkin-8p-P9YjI2bmRIoGJ"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/psn/8334508123203929973/">OnyxStarFiyah26</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-03-22</td>
+            <td class="center"><span class="platform psn"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/777002047266226196/956012296340144188/Screen_Shot_2022-03-22_at_19.11.15.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198164587334/">Scottobozo</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-03-23</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/952285717445345370/956051062933041162/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">WholeWheatOrange</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-03-29</td>
+            <td class="center"><span class="platform UNK"></span></td>
+            <td class="center"><a href="https://twitter.com/WheatOrange/status/1508931710322311169"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/13220f2b5f824395989658d891f38e5c/">sschr15</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-03-30</td>
+            <td class="center"><span class="platform epic"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=8oXmYU6l0ns"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="#">Eclipse</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-04-09</td>
+            <td class="center"><span class="platform xbl"></span></td>
+            <td class="center"><a href="https://discord.com/channels/723278994417647656/736290375009960036/962526912431931512290375009960036/962523033854173215/22.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561199070898575/">Jayden</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-05-13</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://twitter.com/JaydenPPT/status/1525153256590155777"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country KOR" title="KOR"></span><span class="left"><a href="/users/steam/76561198063293369/">Moqoru</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-05-15</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/872024327749500930/978295364484468776/2022051603434800-9E6A5948F727B745C7EE32B5243A9155.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country EGY" title="EGY"></span><span class="left"><a href="/users/xbl/179495FDB636FEC1E8148B7E9CC0C1119D4F4600/">Atarizu3911</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-05-15</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/606186544469901342/975590739289452564/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">nothing</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-05-24</td>
+            <td class="center"><span class="platform epic"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/606194690630483988/978852442013835304/impsooosospsoismsimtris.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/6f79447b875740b8b8a30b30d198d468/">Huffulufugus</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-06-01</td>
+            <td class="center"><span class="platform epic"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/606186544469901342/981617323683237898/impossiblitris.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="">IIIHUMAQCE</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-06-15</td>
+            <td class="center"><span class="platform psn"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/952285717445345370/986534161122754650/Tetris_Effect__Connected_20220615023059.jpg?width=1844&height=1037"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">Snom</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-07-09</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/736290375009960036/995468310567194654/IMG_7680.jpg"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">ten</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-07-09</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/736290375009960036/995468310567194654/IMG_7680.jpg"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/xbl/187B9B9AA7609A85545A9150629A8C5FCC03D070/">AhmadSab</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-07-20</td>
+            <td class="center"><span class="platform xbl"></span></td>
+            <td class="center"><a href="https://clips.twitch.tv/UnusualProtectiveHareDerp-mnyoBVlNKTIv6Eb7"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/nintendo/0f302ceabffb31a7/">Tetro_b0y</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-07-28</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://youtu.be/OdWgc2-_cy4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561199200632130/">cmdingo</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-08-18</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/813558875260583957/1009949559440552057/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country FIN" title="FIN"></span><span class="left"><a href="/users/steam/76561198001700185/">Tounen</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-08-20</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/736290375009960036/1010532486717128724/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198356284034/">Flipside</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-09-02</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/736290375009960036/1015290913569910874/20220902_115142.jpg"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/3db7435cbda24bfc8a07763e5cbac7ce/">Azura</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-09-02</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://clips.twitch.tv/GentleSmoggyFlyPhilosoraptor-sQnnZqTMUrAXcyZO"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/nintendo/ec9f8ccdff5a03d6/">Tetri</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-09-13</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/952285717445345370/1019273246102782097/2022091316265600-9E6A5948F727B745C7EE32B5243A9155.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">knighting</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-09-18</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/736290375009960036/1021138406857773136/first_imp_pog.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/3678e41081824a258ce52a0ad7a1b3e8/">ItzEspeonUwU</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-09-18</td>
+            <td class="center"><span class="platform xbl"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/736290375009960036/1021129679840743595/first_imposs_EEEE.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198077647466/">Chronos</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-09-20</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/606186544469901342/1021651724764717066/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198357094082/">GrassPelt</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-09-21</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/736290375009960036/1022325839016235028/Tetris_Effect__Connected_2022-09-21_20-44-05.mp4"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">Comet Popcorn</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-10-10</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/813558875260583957/1028890636574793738/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country KOR" title="KOR"></span><span class="left"><a href="/users/steam/76561198161493891/">Fucidin</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-10-10</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/813558875260583957/1028890611295735838/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">Aelita</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-10-10</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/813558875260583957/1028890572473258004/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+        <tr class="hidden" style="display: none">
+            <td><span class="country UNK" title="UNK"></span><span class="left"><a href="#">Charlotte</a></span></td>
+            <td class="right">22</td>
+            <td class="right">2022-10-15</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://media.discordapp.net/attachments/723279193181257829/1031011880937992192/unknown.png"><span class="globe"></span></span></td>
+        </tr>
+    </table>
+    </div>
+    
+    <div id="master_clear" class="table_wrap">
+    <table class="sortable">
+        <colgroup>
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 20%;">
+           <col span="1" style="width: 10%;">
+           <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Master Mode Clears <input class="info-btn" type="checkbox" id="master-info-btn" /><label class="info-icon" for="master-info-btn"><div class="info">🛈</div></label><div class="info-text">Prior to the EGS release, Master featured DAS startup that took longer to activate than lock delay. PS4 retained its initial timings until the cross-platform Connected update on 2021-08-18.</span></caption>
 
-    <h2>Parting words</h2>
-    <p>Thank you to everyone that has sent kind words my way over the last year and a half as I kept this site humming. While I wasn't able to live up to all the possibilities I imagined for Quarter Zone, I hope you still found some enjoyment tracking your own improvement and seeing how you measured up to the rest of the Tetris Effect community. <a href="https://www.youtube.com/watch?v=KuVCJ84aZT0">Even now, I'll continue to run.</a></p></p>
-    <p>~ bitto</p>
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Lines (Best)</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/steam/76561198326323964/">suitougreentea</a></span></td>
+            <td class="right">303</td>
+            <td class="right">2018-12-08</td>
+            <td class="center" sorttable_customkey="psn"><span class="platform psn"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=TIRMfXMjZp0"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="#">RUHUNA</a></span></td>
+            <td class="right">300</td>
+            <td class="right">-</td>
+            <td class="center" sorttable_customkey="epic"><span class="platform epic"></span></td>
+            <td class="center">-</td>
+        </tr>
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="#">smd3256</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2019-08-29</td>
+            <td class="center" sorttable_customkey="epic"><span class="platform epic"></span></td>
+            <td class="center"><a href="https://twitter.com/jshimada3256/status/1167107419647832064"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="#">kitsune_fuchi</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2020-04-12</td>
+            <td class="center" sorttable_customkey="epic"><span class="platform epic"></span></td>
+            <td class="center"><a href="https://twitter.com/kitsune_fuchi/status/1249274977183916038"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/xbl/CB5CDB33C0943A0E5CFD89E0FE38748ACF7AB44F/">RunningOutRate</a></span></td>
+            <td class="right">303</td>
+            <td class="right">2020-04-25</td>
+            <td class="center" sorttable_customkey="epic"><span class="platform epic"></span></td>
+            <td class="center"><a href="https://twitter.com/RunningOutRate/status/1254026475436564481"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198819506615/">EricICX</a></span></td>
+            <td class="right">300</td>
+            <td class="right">-</td>
+            <td class="center" sorttable_customkey="ms"><span class="platform ms"></span></td>
+            <td class="center">-</td>
+        </tr>
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="#">ZIN</a></span></td>
+            <td class="right">301</td>
+            <td class="right">2020-12-12</td>
+            <td class="center" sorttable_customkey="ms"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=Sgn0GPI2GMY"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/be5a76beccc2449a9f38412d9be2f0d8/">KibiByte</a></span></td>
+            <td class="right">302</td>
+            <td class="right">2020-12-24</td>
+            <td class="center" sorttable_customkey="ms"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=lkgEHBztEcc"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country TWN" title="TWN"></span><span class="left"><a href="#">mactonya</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2021-02-06</td>
+            <td class="center" sorttable_customkey="ms"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=lg7lAQM7t-M"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198017127674/">bitto</a></span></td>
+            <td class="right">301</td>
+            <td class="right">2021-02-07</td>
+            <td class="center" sorttable_customkey="ms"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=JuT79QauQms"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198273395160/">Yoshimi</a></span></td>
+            <td class="right">303</td>
+            <td class="right">2021-02-11</td>
+            <td class="center" sorttable_customkey="ms"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/809307261822435388/Screenshot_81.png"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country POL" title="POL"></span><span class="left"><a href="#">xcnc</a></span></td>
+            <td class="right">303</td>
+            <td class="right">2021-02-18</td>
+            <td class="center" sorttable_customkey="ms"><span class="platform ms"></span></td>
+            <td class="center">-</td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198230243668/">Kirby703</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2021-03-19</td>
+            <td class="center" sorttable_customkey="ms"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/822677972011581450/unknown.png"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/xbl/931211F071AF0835CED1A53C8F2C3772EADEAEC3/">yuureighost</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2021-03-26</td>
+            <td class="center" sorttable_customkey="ms"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://twitter.com/yuureighost_tet/status/1375416284649725956"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country FRA" title="FRA"></span><span class="left"><a href="#">Angel OF Diamond</a></span></td>
+            <td class="right">301</td>
+            <td class="right">2021-05-01</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=0VJ-VuGhQuY"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/11566e8d8a434b8d882fac21dd058808/">Taco</a></span></td>
+            <td class="right">303</td>
+            <td class="right">2021-07-30</td>
+            <td class="center" sorttable_customkey="ms"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/870753969708875826/Screenshot_1494.png"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/69c4e94537794b96907b814ee2fb711d/">santi</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2021-08-27</td>
+            <td class="center" sorttable_customkey="ms"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/880892983912824923/unknown.png"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country CHN" title="CHN"></span><span class="left"><a href="/users/steam/76561199199750623/">~小柒不可爱~</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2021-08-27</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://www.bilibili.com/video/BV1Tq4y1U7E6"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198074682459/">niner</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2021-10-06</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/895518623240687646/Screenshot_20.png"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country COL" title="COL"></span><span class="left"><a href="/users/steam/76561198800453632/">willycel123</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2021-11-04</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/906006680364527616/Tetris_Effect__Connected_2021-11-04_21-25-08.mp4"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country RUS" title="RUS"></span><span class="left"><a href="/users/steam/76561198875500111/">Tetro48</a></span></td>
+            <td class="right">301</td>
+            <td class="right">2021-11-10</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/907899983385210920/unknown.png"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country KOR" title="KOR"></span><span class="left"><a href="/users/xbl/FFAEE88F6CDBA3E0DDE43D1F16B0F86C3BC35D31/">BarrelZebra2149</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2021-11-12</td>
+            <td class="center" sorttable_customkey="xbl"><span class="platform xbl"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/908644091246559232/unknown.png"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country GBR" title="GBR"></span><span class="left"><a href="/users/psn/3147764457964949333/">hontnog</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2021-11-14</td>
+            <td class="center" sorttable_customkey="psn"><span class="platform psn"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=vZE8Cn1U2nY"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country KOR" title="KOR"></span><span class="left"><a href="/users/epic/2d4b7c74faa44250b39d12453a89909e/">Zezuassa</a></span></td>
+            <td class="right">301</td>
+            <td class="right">2021-12-11</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=sAiIRL0BAFs"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country GBR" title="GBR"></span><span class="left"><a href="/users/nintendo/0882c1f1bd6e0842/">Skinda</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2021-12-11</td>
+            <td class="center" sorttable_customkey="nintendo"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://twitter.com/SkindaOnT99/status/1469766930256908288"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country CHN" title="CHN"></span><span class="left"><a href="#">bluemouse</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2021-12-21</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://www.bilibili.com/video/BV1Na411672w"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country AUS" title="AUS"></span><span class="left"><a href="/users/steam/76561198251580070/">Yoshi100_Aus</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2022-01-04</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://clips.twitch.tv/LongDignifiedLarkPanicBasket-FU28BMW0utYHclH5"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198027174109/">Dota2orFeed</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2022-01-04</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center">-</td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/nintendo/a0490a6313a268a0/">Supershock</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2022-01-05</td>
+            <td class="center" sorttable_customkey="nintendo"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/928424177579458631/IMG_9972.mov"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198964932804/">VFlyer</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2022-01-08</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center">-</td>
+        </tr>
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/nintendo/adcc5654aec80d10/">LICROSEA</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2022-01-08</td>
+            <td class="center" sorttable_customkey="ms"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/929338398232150046/Tetris_Effect__Connected_2022_01_08_20_36_48.png"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561199083286387/">teeks</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2022-02-23</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://youtu.be/CVseUTWJAhQ"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561199154144678/">SGFerox</a></span></td>
+            <td class="right">303</td>
+            <td class="right">2022-03-02</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/736290375009960036/948793025071558676/2022-03-02_21-04-49_Trim.mp4"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198061851334/">BeastinShen</a></span></td>
+            <td class="right">301</td>
+            <td class="right">2022-04-05</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/736290375009960036/961072783301951568/unknown.png"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198156880128/">Tansetsu</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2022-04-07</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center">-</td>
+        </tr> 
+        <tr>
+            <td><span class="country KOR" title="KOR"></span><span class="left"><a href="/users/steam/76561198275415304/"">Noweat STM</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2022-05-03</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=jm675oIGa-U"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198410636290/">GlowBricker</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2022-06-08</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/984178654454120448/IMG_0194.png"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/psn/8175401621022979894/">BowserJrX</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2022-06-22</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=Bmazq-Mk_UM"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/bb7d16913e7a427ca4d46c8ec1832ce9/">Lexi</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2022-07-15</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/997634973966274630/unknown.png"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198827575995/">T-Flat</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2022-08-23</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/780193041734041601/1011724783374827600/unknown.png"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country FRA" title="FRA"></span><span class="left"><a href="/users/steam/76561198086995560/">Doremy</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2022-09-05</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center">-</td>
+        </tr>
+        <tr>
+            <td><span class="country POL" title="POL"></span><span class="left"><a href="#">GONZ</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2022-11-03</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=k1ELAtPd9TU"><span class="globe"></span></a></td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/epic/f3a9372fffa6409fbbcfd2e9e506c881/">Promooooooo</a></span></td>
+            <td class="right">300</td>
+            <td class="right">2022-11-16</td>
+            <td class="center" sorttable_customkey="steam"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/736290375009960036/1042531381126893628/image.png"><span class="globe"></span></a></td>
+        </tr>
+    </table>
+    </div>
+    
+    <div id="maniac_clear" class="table_wrap">
+    <table>
+        <colgroup>
+           <col span="1" style="width: 23.33%;">
+           <col span="1" style="width: 23.33%;">
+           <col span="1" style="width: 23.33%;">
+            <col span="1" style="width: 20%;">
+           <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Area 5 Maniac Mode Clears (Deathless) <input class="info-btn" type="checkbox" id="maniac-info-btn" /><label class="info-icon" for="maniac-info-btn"><div class="info">🛈</div></label><div class="info-text">Prior to the cross-platform Connected update on 2021-08-18, Tetrimidion strictly alternated between common and signature blitzes.</div></caption>
+        
+        <tr>
+            <th class="center">Player 1</td>
+            <th class="center">Player 2</td>
+            <th class="center">Player 3</td>
+            <th class="center">Date</td>
+            <th class="center">Src</td>
+        </tr>
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561199154144678/">SGFerox</a></span></td>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/xbl/5E00ABF67B1E5005EF99FDFDC74213126920287E/">Sionara1201</a></span></td>
+            <td><span class="country COL" title="COL"></span><span class="left"><a href="/users/steam/76561198800453632/">willycel123</a></span></td>
+            <td class="right">2022-06-14</td>
+            <td class="center"><a href="https://youtu.be/gfj-XtRqcGA"><span class="globe"></span></span></td>
+        </tr>
+        <tr>
+            <td><span class="country KOR" title="KOR"></span><span class="left"><a href="/users/xbl/10EF2C936A0B2129072A5F92C9C7FFBA193D940C/">Noweat XBX</a></span></td>
+            <td><span class="country KOR" title="KOR"></span><span class="left"><a href="/users/steam/76561198103268715/">riviclia</a></span></td>
+            <td><span class="country KOR" title="KOR"></span><span class="left"><a href="/users/xbl/FFAEE88F6CDBA3E0DDE43D1F16B0F86C3BC35D31/">BarrelZebra2149</a></span></td>
+            <td class="right">2022-06-14</td>
+            <td class="center"><a href="https://youtu.be/vC-vZ4sf44A"><span class="globe"></span></span></td>
+        </tr>
+    </table>
+    </div>
 
+    <div id="marathon" class="table_wrap">
+    <table>
+        <colgroup>
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 15%;">
+            <col span="1" style="width: 15%;">
+           <col span="1" style="width: 20%;">
+           <col span="1" style="width: 10%;">
+           <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Marathon</caption>
+        
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Score</td>
+            <th class="center">Time</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
+
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198045735642/">RatedFforFun</a></span></td>
+            <td class="right">1,867,802</td>
+            <td class="right">07:43.75</td>
+            <td class="right">2022-09-15</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=sIn2Sesd3n0"><span class="globe"></span></span></td>
+        </tr>
+    </table>
+    </div>
+
+    <div id="ultra" class="table_wrap">
+    <table>
+        <colgroup>
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 20%;">
+           <col span="1" style="width: 10%;">
+           <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Ultra</caption>
+        
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Score</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
+
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/psn/2667800660155182022/">akashirobo1</a></span></td>
+            <td class="right">151,089</td>
+            <td class="right">-</td>
+            <td class="center"><span class="platform psn"></span></td>
+            <td class="center">-</td>
+        </tr>
+    </table>
+    </div>
+
+    <div id="sprint" class="table_wrap">
+    <table>
+        <colgroup>
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Sprint</caption>
+        
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Time</td>
+            <th class="center">Score</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
+
+        <tr>
+            <td><span class="country KOR" title="KOR"></span><span class="left"><a href="/users/steam/76561198161493891/">Fucidin</a></span></td>
+            <td class="right">26.84</td>
+            <td class="right">14,448</td>
+            <td class="right">2021-11-21</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=MwV-gawQzoI"><span class="globe"></span></span></td>
+        </tr>
+    </table>
+    </div>
+    
+    <div id="master_score" class="table_wrap">
+    <table>
+        <colgroup>
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Master (Score)</caption>
+        
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Score</td>
+            <th class="center">Time</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
+
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/nintendo/a0490a6313a268a0/">Supershock</a></span></td>
+            <td class="right">4,223,350</td>
+            <td class="right">06:19.71</td>
+            <td class="right">2022-07-23</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=vnweNbPsgOo"><span class="globe"></span></span></td>
+        </tr>
+    </table>
+    </div>
+
+    <div id="all_clear" class="table_wrap">
+    <table>
+        <colgroup>
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>All Clear <input class="info-btn" type="checkbox" id="all-clear-info-btn" /><label class="info-icon" for="all-clear-info-btn"><div class="info">🛈</div></label><div class="info-text">The initial PS4 release awards a time bonus for clears on All Clear that effectively allows playing forever. PS4 retains this behavior post-Connected update.</span></caption>
+        
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Clears</td>
+            <th class="center">Score</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
+
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198156880128/">Tansetsu</a></span></td>
+            <td class="right">60</td>
+            <td class="right">197974</td>
+            <td class="right">2022-04-11</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center">-</td>
+        </tr>
+    </table>
+    </div>
+    
+    <div id="combo" class="table_wrap">
+    <table>
+        <colgroup>
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Combo</caption>
+        
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Combos</td>
+            <th class="center">Score</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
+
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/steam/76561199053739034/">uyeshota</a></span></td>
+            <td class="right">360</td>
+            <td class="right">187,189</td>
+            <td class="right">2021-11-18</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://twitter.com/Tetris_uYen/status/1458352884467175425"><span class="globe"></span></span></td>
+        </tr>
+    </table>
+    </div>
+    
+    <div id="target" class="table_wrap">
+    <table>
+        <colgroup>
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Target <input class="info-btn" type="checkbox" id="target-info-btn" /><label class="info-icon" for="target-info-btn"><div class="info">🛈</div></label><div class="info-text">The initial PS4 release awards a time bonus for clears on Target that effectively allows playing forever. PS4 retains this behavior post-Connected update.</div></caption>
+        
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Clears</td>
+            <th class="center">Score</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
+
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/steam/76561198326323964/">suitougreentea</a></span></td>
+            <td class="right">83</td>
+            <td class="right">-</td>
+            <td class="right">-</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center">-</td>
+        </tr>
+    </table>
+    </div>
+
+    <div id="countdown" class="table_wrap">
+    <table>
+        <colgroup>
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 20%;">
+           <col span="1" style="width: 10%;">
+           <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Countdown</caption>
+        
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Score</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
+
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/steam/76561199053739034/">uyeshota</a></span></td>
+            <td class="right">135,885</td>
+            <td class="right">-</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center">-</td>
+        </tr>
+    </table>
+    </div>
+    
+    <div id="purify" class="table_wrap">
+    <table>
+        <colgroup>
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Purify</caption>
+        
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Clears</td>
+            <th class="center">Score</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
+
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/steam/76561199053739034/">uyeshota</a></span></td>
+            <td class="right">2,495</td>
+            <td class="right">56,044</td>
+            <td class="right">2021-11-19</td>
+            <td class="center"><span class="platform steam"></span></td>
+            <td class="center"><a href="https://twitter.com/Tetris_uYen/status/1461904102363783174"><span class="globe"></span></span></td>
+        </tr>
+    </table>
+    </div>
+    
+    <div id="mystery" class="table_wrap">
+    <table>
+        <colgroup>
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Mystery</caption>
+        
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Score</td>
+            <th class="center">Time</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
+
+        <tr>
+            <td><span class="country GBR" title="GBR"></span><span class="left"><a href="/users/nintendo/0882c1f1bd6e0842/">Skinda</a></span></td>
+            <td class="right">1,390,510</td>
+            <td class="right">12:04.94</td>
+            <td class="right">2021-12-02</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://twitter.com/SkindaOnT99/status/1466492475942391813"><span class="globe"></span></span></td>
+        </tr>
+    </table>
+    </div>
+
+    <div id="sa_score" class="table_wrap">
+    <table>
+        <colgroup>
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 20%;">
+           <col span="1" style="width: 10%;">
+           <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Score Attack (Score)</caption>
+        
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Score</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
+
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/nintendo/a0490a6313a268a0/">Supershock</a></span></td>
+            <td class="right">3,522,275</td>
+            <td class="right">2022-06-08</td>
+            <td class="center"><span class="platform nintendo"></span></td>
+            <td class="center"><a href="https://www.youtube.com/watch?v=I1dp61vY8Wc"><span class="globe"></span></span></td>
+        </tr>
+    </table>
+    </div>
+    
+    <div id="sa_level" class="table_wrap">
+    <table>
+        <colgroup>
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 20%;">
+           <col span="1" style="width: 10%;">
+           <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Score Attack (Level)</caption>
+        
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Level + Lines (Best)</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
+
+        <tr>
+            <td><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/xbl/CB5CDB33C0943A0E5CFD89E0FE38748ACF7AB44F/">RunningOutRate</a></span></td>
+            <td class="right">35+1</td>
+            <td class="right">2021-01-27</td>
+            <td class="center"><span class="platform ms"></span></td>
+            <td class="center"><a href="https://cdn.discordapp.com/attachments/723279193181257829/803992036919345162/439.png"><span class="globe"></span></span></td>
+        </tr>
+    </table>
+    </div>
+    
+    <div id="csa_score" class="table_wrap">
+    <table>
+        <colgroup>
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 20%;">
+           <col span="1" style="width: 10%;">
+           <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Classic Score Attack (Score)</caption>
+        
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Score</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
+
+        <tr>
+            <td>-</td>
+            <td class="right">-</td>
+            <td class="right">-</td>
+            <td class="center"><span class="platform"></span></td>
+            <td class="center">-</td>
+        </tr>
+    </table>
+    </div>
+    
+    <div id="csa_level" class="table_wrap">
+    <table>
+        <colgroup>
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 20%;">
+           <col span="1" style="width: 10%;">
+           <col span="1" style="width: 10%;">
+        </colgroup>
+        
+        <caption>Classic Score Attack (Level)</caption>
+        
+        <tr>
+            <th class="center">Player</td>
+            <th class="center highlight">Level + Lines (Best)</td>
+            <th class="center">Date</td>
+            <th class="center">Plat</td>
+            <th class="center">Src</td>
+        </tr>
+
+        <tr>
+            <td><span class="country USA" title="USA"></span><span class="left"><a href="/users/xbl/73F926D553A5ED8E15D852E994C4C28333053DB0/">AleKt6034</a></span></td>
+            <td class="right">32+0</td>
+            <td class="right">2021-03-23</td>
+            <td class="center"><span class="platform xbl"></span></td>
+            <td class="center"><a href="https://www.twitch.tv/videos/1434919094"><span class="globe"></span></span></td>
+        </tr>
+    </table>
+    </div>
+</div>
 </div>
 
 <script src="/js/theme.js"></script>
+<script src="/js/lib/sortable.js"></script>
+<script>
+window.addEventListener("load", function() {
+    var expanders = document.querySelectorAll(".expand");
+
+    expanders.forEach(function(expander, expanderIndex) {
+        expander.addEventListener("click", function() {
+            var rotated = expander.querySelector("span.rotate").style.transform == "rotate(90deg)";
+            if (rotated) {
+                expander.querySelector("span.rotate").style.transform = "";
+                expander.querySelector("span.rotate").style.bottom = "5px";
+                expander.querySelector("span.rotate").style.left = "0"
+            } else {
+                expander.querySelector("span.rotate").style.transform = "rotate(90deg)";
+                expander.querySelector("span.rotate").style.bottom = "-3px";
+                expander.querySelector("span.rotate").style.left = " -2px";
+            }
+            expander.parentNode.querySelectorAll("tr.hidden").forEach(function(item, index) {
+                item.style.display = item.style.display == "table-row" ? "none" : "table-row";
+            });
+        });
+    });
+});
+</script>
 </body>
 </html>
