@@ -1,0 +1,332 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Connected Stats - Quarter Zone</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/icon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/img/icon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/img/icon/favicon-96x96.png">
+        <meta name="msapplication-TileColor" content="#000">
+        <meta name="msapplication-TileImage" content="/img/icon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#000">
+        <link rel="stylesheet" type="text/css" href="/style/all.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="/js/lib/plotly-min.js"></script>
+    </head>
+
+    <body>
+    <div class="main">
+    <div class="nav">
+        <a href="/"><div class="logo"></div></a>
+        <div class="themeToggleCont">
+            <input class="switch" type="checkbox" id="themeToggle">
+            <label for="themeToggle">Lights on</label>
+        </div>
+        <ul class="menu">
+            <a href="/about"><li class="header about">About</li></a>
+            <a href="/changelog"><li class="header changelog">Changelog</li></a>
+            <a href="/utilities"><li class="header utilities">Utilities</li></a>
+            <a href="/events"><li class="header events">Events</li></a>
+            <a href="/#hall_of_fame"><li class="header hof">Hall of Fame</li></a>
+            <a href="#"><li class="header connected">Connected</li></a>
+            <a href="/mp_stats"><li>Stats</li></a>
+            <a href="/overall"><li>Overall</li></a>
+            <a href="/cvs"><li>Connected Vs</li></a>
+            <a href="/zb"><li>Zone Battle</li></a>
+            <a href="/sa"><li>Score Attack</li></a>
+            <a href="/csa"><li>Classic Score Attack</li></a>
+            <a href="/#sa_score"><li>Score Attack (Score)</li></a>
+            <a href="/#sa_level"><li>Score Attack (Level)</li></a>
+            <a href="/#csa_score"><li>Classic Score Attack (Score)</li></a>
+            <a href="/#csa_level"><li>Classic Score Attack (Level)</li></a>
+        </ul>
+    </div>
+    
+    <div class="stats-section">
+    <div class="head">
+        <div class="notice announcement">As of 2023-08-01, Quarter Zone is now in a static state. <a href="/shutdown">See our notice for more information.</a></div>
+        <div class="notice"><i>Last updated: 2023-07-31</i></div>
+
+        <div id="stats" class="section-header connected">Connected Stats</div>
+    </div>
+    <div class="stats-total-players">Total players ingested: 55844</div>
+    <div class="stats-inner">
+    
+        <div class="table_wrap">
+        <table class="sortable">
+            <caption>Platform Player Count <input class="info-btn" type="checkbox" id="platform-info-btn"><label class="info-icon" for="platform-info-btn"><div class="info">🛈</div></label><div class="info-text">Users with Epic-linked accounts are reported as Epic Games users. This amount is negligible to the overall counts (less than 1%, typically).</div></caption>
+            <tr>
+                <th class="center">Platform</th>
+                <th class="center highlight">Count</th>
+            </tr>
+    
+        <tr>
+            <td class="center"><span title="epic" class="platform epic"></span> Epic Games</td>
+            <td class="center">8767</td>
+        </tr>
+    
+        <tr>
+            <td class="center"><span title="nintendo" class="platform nintendo"></span> NSO</td>
+            <td class="center">8809</td>
+        </tr>
+    
+        <tr>
+            <td class="center"><span title="oculus" class="platform oculus"></span> Oculus</td>
+            <td class="center">7210</td>
+        </tr>
+    
+        <tr>
+            <td class="center"><span title="psn" class="platform psn"></span> PSN</td>
+            <td class="center">12353</td>
+        </tr>
+    
+        <tr>
+            <td class="center"><span title="steam" class="platform steam"></span> Steam</td>
+            <td class="center">6685</td>
+        </tr>
+    
+        <tr>
+            <td class="center"><span title="xbl" class="platform xbl"></span> Xbox Live</td>
+            <td class="center">11902</td>
+        </tr>
+    
+        </table>
+        </div>
+    
+        <div class="table_wrap">
+        <table class="sortable">
+            <caption>Total Matches Observed <input class="info-btn" type="checkbox" id="matches-info-btn"><label class="info-icon" for="matches-info-btn"><div class="info">🛈</div></label><div class="info-text">Match totals are an aggregate sum of each player's mode play counts, divided by the number of players for each mode (/4 for Connected VS, /2 for other modes) as a single match will be reported in multiple player counts. This works off the assumption that all matches are seen in our closed system of ingestion, thus actual match counts for these ingested players is likely higher than what is reported here.</div></caption>
+            <tr>
+                <th class="center">Leaderboard</th>
+                <th class="center highlight">Matches</th>
+            </tr>
+    
+        <tr>
+            <td class="center">Connected VS</td>
+            <td class="center">276501</td>
+        </tr>
+    
+        <tr>
+            <td class="center">Zone Battle</td>
+            <td class="center">5272777</td>
+        </tr>
+    
+        <tr>
+            <td class="center">Score Attack</td>
+            <td class="center">662945</td>
+        </tr>
+    
+        <tr>
+            <td class="center">Classic Score Attack</td>
+            <td class="center">1283049</td>
+        </tr>
+    
+        </table>
+        </div>
+    
+    </div>
+    
+        <div class="row-title">Highest Area Cleared <input class="info-btn" type="checkbox" id="boss-info-btn"><label class="info-icon" for="boss-info-btn"><div class="info">🛈</div></label><div class="info-text">Using latest ingestion of players only. Percents reported are the highest area cleared; that is, players that have not yet completed Area 1 are reported in the Area 0 category. </div></div>
+    
+        <div class="areas-cleared">
+    <div class="area-clear-block" style="width: 28.71%; background-color: white;">0</div><div class="area-clear-block" style="width: 11.23%; background-color: #64d8f8;">1</div><div class="area-clear-block" style="width: 9.99%; background-color: #e56638;">2</div><div class="area-clear-block" style="width: 14.91%; background-color: #94f277;">3</div><div class="area-clear-block" style="width: 17.51%; background-color: #b19edb;">4</div><div class="area-clear-block" style="width: 17.62%; background-color: #cccccc;">5</div><div class="area-clear-percent" style="width: 28.71%">28.71%</div><div class="area-clear-percent" style="width: 11.23%">11.23%</div><div class="area-clear-percent" style="width: 9.99%">9.99%</div><div class="area-clear-percent" style="width: 14.91%">14.91%</div><div class="area-clear-percent" style="width: 17.51%">17.51%</div><div class="area-clear-percent" style="width: 17.62%">17.62%</div>
+    </div>
+    
+        <div class="row-title">Fastest Rising Players </div>
+    
+        <div class="info-notice">SR differences and win rate trends shown are rolling over the last week. Players are tagged inactive after two weeks with no recorded matches.</div>
+    
+        <div class="stats-rising-players">
+    
+        <div class="table_wrap">
+        <table class="sortable">
+            <caption style="color: white">Overall</caption>
+            <tr>
+                <th class="center">Player</th>
+                <th class="center highlight">Skill Ranking (SR)</th>
+            </tr>
+    
+        <tr>
+            <td sorttable_customkey="Passnot"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/f8f4031505b54a80bc3fb6cbeab05c0b/">Passnot</a></span></td>
+            <td sorttable_customkey="7070" class="right"><span class="positive">+5870</span>  7070</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="reinya3_"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/steam/76561199493338717/">reinya3_</a></span></td>
+            <td sorttable_customkey="7535" class="right"><span class="positive">+4762</span>  7535</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="【 BM-♣ 】shellhouse"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/steam/76561198127796830/">【 BM-♣ 】shellhouse</a></span></td>
+            <td sorttable_customkey="5207" class="right"><span class="positive">+3795</span>  5207</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="KirkP"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/8947803929513681331/">KirkP</a></span></td>
+            <td sorttable_customkey="5629" class="right"><span class="positive">+3607</span>  5629</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="TheLibraryBooks"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/oculus/5423772904306928/">TheLibraryBooks</a></span></td>
+            <td sorttable_customkey="4056" class="right"><span class="positive">+3550</span>  4056</td>
+        </tr>
+    
+        </table>
+        </div>
+    
+        <div class="table_wrap">
+        <table class="sortable">
+            <caption style="color: gray">Connected VS</caption>
+            <tr>
+                <th class="center">Player</th>
+                <th class="center highlight">Skill Ranking (SR)</th>
+            </tr>
+    
+        <tr>
+            <td sorttable_customkey="LaLa"><span class="country KOR" title="KOR"></span><span class="left"><a href="/users/steam/76561198206052665/">LaLa</a></span></td>
+            <td sorttable_customkey="9018" class="right"><span class="positive">+5223</span>  9018</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="MirrorSilent"><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/steam/76561198244540180/">MirrorSilent</a></span></td>
+            <td sorttable_customkey="9412" class="right"><span class="positive">+2692</span>  9412</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="KirkP"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/8947803929513681331/">KirkP</a></span></td>
+            <td sorttable_customkey="6799" class="right"><span class="positive">+2549</span>  6799</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="Zack101155"><span class="country USA" title="USA"></span><span class="left"><a href="/users/steam/76561198180246182/">Zack101155</a></span></td>
+            <td sorttable_customkey="8198" class="right"><span class="positive">+2127</span>  8198</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="Caboose103"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/6405186750004679776/">Caboose103</a></span></td>
+            <td sorttable_customkey="5933" class="right"><span class="positive">+2115</span>  5933</td>
+        </tr>
+    
+        </table>
+        </div>
+    
+        <div class="table_wrap">
+        <table class="sortable">
+            <caption style="color: #76c4de">Zone Battle</caption>
+            <tr>
+                <th class="center">Player</th>
+                <th class="center highlight">Skill Ranking (SR)</th>
+            </tr>
+    
+        <tr>
+            <td sorttable_customkey="Xe_4f10_6s2"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/8031130360190753293/">Xe_4f10_6s2</a></span></td>
+            <td sorttable_customkey="10713" class="right"><span class="positive">+2687</span>  10713</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="Who's that Pokémon?"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/steam/76561198090591992/">Who's that Pokémon?</a></span></td>
+            <td sorttable_customkey="6354" class="right"><span class="positive">+2542</span>  6354</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="✪ Azzy"><span class="country TWN" title="TWN"></span><span class="left"><a href="/users/steam/76561198181162529/">✪ Azzy</a></span></td>
+            <td sorttable_customkey="6394" class="right"><span class="positive">+2390</span>  6394</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="MirrorSilent"><span class="country JPN" title="JPN"></span><span class="left"><a href="/users/steam/76561198244540180/">MirrorSilent</a></span></td>
+            <td sorttable_customkey="9519" class="right"><span class="positive">+2177</span>  9519</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="Big_True"><span class="country CHN" title="CHN"></span><span class="left"><a href="/users/steam/76561198441890747/">Big_True</a></span></td>
+            <td sorttable_customkey="5897" class="right"><span class="positive">+1930</span>  5897</td>
+        </tr>
+    
+        </table>
+        </div>
+    
+        <div class="table_wrap">
+        <table class="sortable">
+            <caption style="color: #b176de">Score Attack</caption>
+            <tr>
+                <th class="center">Player</th>
+                <th class="center highlight">Skill Ranking (SR)</th>
+            </tr>
+    
+        <tr>
+            <td sorttable_customkey="Passnot"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/f8f4031505b54a80bc3fb6cbeab05c0b/">Passnot</a></span></td>
+            <td sorttable_customkey="7830" class="right"><span class="positive">+3212</span>  7830</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="Mike"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/nintendo/b28c1f8f2023bdd3/">Mike</a></span></td>
+            <td sorttable_customkey="6660" class="right"><span class="positive">+3161</span>  6660</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="reinya3_"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/steam/76561199493338717/">reinya3_</a></span></td>
+            <td sorttable_customkey="6867" class="right"><span class="positive">+2761</span>  6867</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="jalaxy2021"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/3951433887014318361/">jalaxy2021</a></span></td>
+            <td sorttable_customkey="5606" class="right"><span class="positive">+1899</span>  5606</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="Big_True"><span class="country CHN" title="CHN"></span><span class="left"><a href="/users/steam/76561198441890747/">Big_True</a></span></td>
+            <td sorttable_customkey="6511" class="right"><span class="positive">+1857</span>  6511</td>
+        </tr>
+    
+        </table>
+        </div>
+    
+        <div class="table_wrap">
+        <table class="sortable">
+            <caption style="color: #76de7b">Classic Score Attack</caption>
+            <tr>
+                <th class="center">Player</th>
+                <th class="center highlight">Skill Ranking (SR)</th>
+            </tr>
+    
+        <tr>
+            <td sorttable_customkey="ChickenTacos4u"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/a48bb2d6f0b5484b9852b15ad3244860/">ChickenTacos4u</a></span></td>
+            <td sorttable_customkey="6011" class="right"><span class="positive">+2575</span>  6011</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="Living Tribunal"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/steam/76561197968086977/">Living Tribunal</a></span></td>
+            <td sorttable_customkey="8385" class="right"><span class="positive">+1768</span>  8385</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="Passnot"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/f8f4031505b54a80bc3fb6cbeab05c0b/">Passnot</a></span></td>
+            <td sorttable_customkey="6394" class="right"><span class="positive">+1612</span>  6394</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="R3lax-0420-"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/psn/1644526919971574039/">R3lax-0420-</a></span></td>
+            <td sorttable_customkey="5570" class="right"><span class="positive">+1438</span>  5570</td>
+        </tr>
+    
+        <tr>
+            <td sorttable_customkey="TetrisMonkey2"><span class="country UNK" title="UNK"></span><span class="left"><a href="/users/epic/fab4e60db5404e5c82931bc6942039b0/">TetrisMonkey2</a></span></td>
+            <td sorttable_customkey="9085" class="right"><span class="positive">+1257</span>  9085</td>
+        </tr>
+    
+        </table>
+        </div>
+    
+    </div>
+    
+    </div>
+    </div>
+
+    <script src="/js/theme.js"></script>
+    <script src="/js/toggleInactive.js"></script>
+    <script src="/js/lib/sortable.js"></script>
+    </body>
+    </html>
+    
